@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import CtaForm from '../../components/CtaForm.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsApp from '../../components/WhatsApp.astro';
+
+const title = 'Мойка окон в офисе Москва от 250 ₽/окно';
+const description = 'Мойка окон и фасадов коммерческих зданий в Москве. Промышленные альпинисты с допуском. Работаем на любой высоте.';
+---
+
+<BaseLayout title={title} description={description}>
+  <Header />
+
+  <main>
+    <section class="bg-gradient-to-br from-slate-900 to-slate-800 text-white pt-32 pb-20">
+      <div class="container mx-auto px-4">
+        <div class="flex gap-2 text-sm text-slate-400 mb-6">
+          <a href="/" class="text-teal-400 hover:underline">Главная</a>
+          <span>/</span>
+          <span>Мойка окон</span>
+        </div>
+
+        <h1 class="font-serif text-4xl md:text-5xl font-bold mb-5 max-w-2xl">
+          Мойка окон в офисе и бизнес-центре
+        </h1>
+
+        <p class="text-lg text-slate-300 max-w-xl mb-10 leading-relaxed">
+          Профессиональная мойка окон на любой высоте. Промышленные альпинисты с допуском, страховкой и опытом работы от 5 лет.
+        </p>
+
+        <div class="flex flex-wrap gap-12">
+          <div>
+            <div class="text-xs uppercase tracking-widest text-slate-400 mb-1">Стоимость</div>
+            <div class="text-2xl font-bold">от 250 ₽/окно</div>
+          </div>
+          <div>
+            <div class="text-xs uppercase tracking-widest text-slate-400 mb-1">Высота</div>
+            <div class="text-2xl font-bold">до 100 м</div>
+          </div>
+          <div>
+            <div class="text-xs uppercase tracking-widest text-slate-400 mb-1">Безопасность</div>
+            <div class="text-2xl font-bold">Страховка</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <CtaForm />
+  </main>
+
+  <Footer />
+  <WhatsApp />
+</BaseLayout>

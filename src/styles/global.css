@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+:root {
+  --navy: rgb(26, 35, 50);
+  --white: rgb(255, 255, 255);
+  --off: rgb(246, 247, 249);
+  --teal: rgb(42, 143, 122);
+  --text: rgb(230, 230, 230);
+  --text-m: rgb(180, 180, 180);
+  --text-d: rgb(200, 200, 200);
+  --text-dm: rgb(100, 100, 100);
+  --border-d: rgb(220, 220, 220);
+  --border-l: rgba(255, 255, 255, 0.1);
+  --serif: 'Merriweather', Georgia, serif;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.font-serif {
+  font-family: var(--serif);
+}

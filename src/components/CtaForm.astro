@@ -1,0 +1,38 @@
+---
+---
+
+<section id="cta" class="py-20 bg-gradient-to-br from-teal-600 to-teal-700">
+  <div class="container mx-auto px-4">
+    <div class="max-w-2xl mx-auto text-center text-white">
+      <h2 class="font-serif text-3xl md:text-4xl font-bold mb-4">
+        Получить расчёт стоимости
+      </h2>
+      <p class="text-teal-100 mb-8">
+        Оставьте контакты — перезвоним за 15 минут и рассчитаем точную стоимость
+      </p>
+
+      <form class="bg-white rounded-lg p-8 text-left" onsubmit="event.preventDefault(); alert('Спасибо! Мы свяжемся с вами.');">
+        <div class="grid md:grid-cols-2 gap-4 mb-4">
+          <div>
+            <label class="block text-slate-700 text-sm mb-1">Имя</label>
+            <input type="text" placeholder="Ваше имя" required class="w-full px-3 py-2 border border-slate-300 rounded text-slate-900 focus:outline-none focus:border-teal-500">
+          </div>
+          <div>
+            <label class="block text-slate-700 text-sm mb-1">Телефон</label>
+            <input type="tel" placeholder="+7 (___) ___-__-__" required class="w-full px-3 py-2 border border-slate-300 rounded text-slate-900 focus:outline-none focus:border-teal-500">
+          </div>
+        </div>
+        <div class="mb-4">
+          <label class="block text-slate-700 text-sm mb-1">Комментарий</label>
+          <input type="text" placeholder="Опишите задачу" class="w-full px-3 py-2 border border-slate-300 rounded text-slate-900 focus:outline-none focus:border-teal-500">
+        </div>
+        <button type="submit" class="w-full py-3 bg-teal-600 hover:bg-teal-700 text-white font-medium rounded transition-colors">
+          Получить расчёт
+        </button>
+        <p class="text-xs text-slate-400 mt-4 text-center">
+          Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
+        </p>
+      </form>
+    </div>
+  </div>
+</section>

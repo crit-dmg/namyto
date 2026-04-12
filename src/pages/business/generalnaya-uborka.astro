@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import CtaForm from '../../components/CtaForm.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsApp from '../../components/WhatsApp.astro';
+
+const title = 'Генеральная уборка офиса Москва — от 80 ₽/м²';
+const description = 'Разовая генеральная уборка офиса в Москве. Моём всё: полы, окна, санузлы, кухню. Бригада выезжает в день обращения.';
+---
+
+<BaseLayout title={title} description={description}>
+  <Header />
+
+  <main>
+    <section class="bg-gradient-to-br from-slate-900 to-slate-800 text-white pt-32 pb-20">
+      <div class="container mx-auto px-4">
+        <div class="flex gap-2 text-sm text-slate-400 mb-6">
+          <a href="/" class="text-teal-400 hover:underline">Главная</a>
+          <span>/</span>
+          <span>Генеральная уборка</span>
+        </div>
+
+        <h1 class="font-serif text-4xl md:text-5xl font-bold mb-5 max-w-2xl">
+          Генеральная уборка офиса
+        </h1>
+
+        <p class="text-lg text-slate-300 max-w-xl mb-10 leading-relaxed">
+          Разовая уборка для приведения офиса в идеальное состояние. До мелочей: моём полы, плинтуса, двери, розетки, выключатели.
+        </p>
+
+        <div class="flex flex-wrap gap-12">
+          <div>
+            <div class="text-xs uppercase tracking-widest text-slate-400 mb-1">Стоимость</div>
+            <div class="text-2xl font-bold">от 80 ₽/м²</div>
+          </div>
+          <div>
+            <div class="text-xs uppercase tracking-widest text-slate-400 mb-1">Минимум</div>
+            <div class="text-2xl font-bold">15 000 ₽</div>
+          </div>
+          <div>
+            <div class="text-xs uppercase tracking-widest text-slate-400 mb-1">Срок</div>
+            <div class="text-2xl font-bold">4–8 часов</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-slate-950">
+      <div class="container mx-auto px-4">
+        <h2 class="font-serif text-3xl md:text-4xl font-bold text-white mb-12">
+          Когда нужна генеральная уборка
+        </h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-white p-8 border border-slate-200">
+            <div class="text-3xl font-bold text-teal-500 mb-4 font-serif">01</div>
+            <h3 class="text-lg font-semibold text-slate-900 mb-3">После ремонта</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              Строительная пыль, следы от краски, герметика, шпаклёвки. Требуется промышленная мойка и удаление строительных загрязнений.
+            </p>
+          </div>
+          <div class="bg-white p-8 border border-slate-200">
+            <div class="text-3xl font-bold text-teal-500 mb-4 font-serif">02</div>
+            <h3 class="text-lg font-semibold text-slate-900 mb-3">Перед важным событием</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              Аудит, приёмка помещения, переезд в новый офис, визит инвесторов. Офис должен сиять.
+            </p>
+          </div>
+          <div class="bg-white p-8 border border-slate-200">
+            <div class="text-3xl font-bold text-teal-500 mb-4 font-serif">03</div>
+            <h3 class="text-lg font-semibold text-slate-900 mb-3">Раз в квартал</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              Даже при ежедневной уборке накапливаются загрязнения в труднодоступных местах. Генеральная уборка возвращает свежесть.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <CtaForm />
+  </main>
+
+  <Footer />
+  <WhatsApp />
+</BaseLayout>
