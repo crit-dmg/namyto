@@ -4,6 +4,21 @@ interface Props {
 }
 
 const { section = 'business' } = Astro.props;
+
+const services = [
+  { title: 'Уборка офисов', url: '/business/uborka-ofisov/' },
+  { title: 'Генеральная уборка', url: '/business/generalnaya-uborka/' },
+  { title: 'Химчистка', url: '/business/himchistka/' },
+  { title: 'Мойка окон', url: '/business/moyjka-okon/' },
+  { title: 'Уборка после ремонта', url: '/business/uborka-posle-remonta/' },
+];
+
+const objects = [
+  { title: 'Бизнес-центры', url: '/business/uborka-biznes-centrov/' },
+  { title: 'Склады', url: '/business/uborka-skladov/' },
+  { title: 'Рестораны', url: '/business/klining-restoranov/' },
+  { title: 'Торговые центры', url: '/business/uborka-torgovyh-centrov/' },
+];
 ---
 
 <header class="hdr" id="hdr">
@@ -11,10 +26,54 @@ const { section = 'business' } = Astro.props;
     <div class="hdr-in">
       <a href="/" class="logo"><svg class="logo-mark" viewBox="0 0 48 48" fill="none"><rect x="8" y="6" width="6" height="36" rx="1" fill="#fff"/><rect x="34" y="6" width="6" height="36" rx="1" fill="#fff"/><rect x="14" y="19" width="20" height="5" rx="1" fill="#2A8F7A"/></svg>намыто</a>
       <nav class="hdr-nav" id="nav">
-        <a href="#services">Услуги</a>
-        <a href="#objects">Объекты</a>
-        <a href="#process">Подход</a>
-        <a href="#form">Связаться</a>
+        <!-- Desktop Dropdown -->
+        <div class="nav-dropdown desktop-only">
+          <button class="nav-dropdown__toggle" aria-expanded="false" aria-controls="services-menu">
+            Услуги
+            <svg class="nav-dropdown__icon" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="nav-dropdown__menu" id="services-menu">
+            {services.map(s => <a href={s.url} class="nav-dropdown__item">{s.title}</a>)}
+          </div>
+        </div>
+
+        <!-- Desktop Dropdown Objects -->
+        <div class="nav-dropdown desktop-only">
+          <button class="nav-dropdown__toggle" aria-expanded="false" aria-controls="objects-menu">
+            Объекты
+            <svg class="nav-dropdown__icon" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="nav-dropdown__menu" id="objects-menu">
+            {objects.map(o => <a href={o.url} class="nav-dropdown__item">{o.title}</a>)}
+          </div>
+        </div>
+
+        <a href="#process" class="desktop-only">Подход</a>
+        <a href="#form" class="desktop-only">Связаться</a>
+
+        <!-- Mobile Accordion -->
+        <div class="nav-accordion mobile-only">
+          <button class="nav-accordion__toggle" aria-expanded="false" aria-controls="mobile-services">
+            <span>Услуги</span>
+            <svg class="nav-accordion__icon" width="12" height="8" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="nav-accordion__content" id="mobile-services">
+            {services.map(s => <a href={s.url} class="nav-accordion__item">{s.title}</a>)}
+          </div>
+        </div>
+
+        <div class="nav-accordion mobile-only">
+          <button class="nav-accordion__toggle" aria-expanded="false" aria-controls="mobile-objects">
+            <span>Объекты</span>
+            <svg class="nav-accordion__icon" width="12" height="8" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="nav-accordion__content" id="mobile-objects">
+            {objects.map(o => <a href={o.url} class="nav-accordion__item">{o.title}</a>)}
+          </div>
+        </div>
+
+        <a href="#process" class="mobile-only">Подход</a>
+        <a href="#form" class="mobile-only">Связаться</a>
       </nav>
       <div class="hdr-right">
         <a href="tel:+74951234567" class="hdr-tel">+7 495 123-45-67</a>
@@ -84,17 +143,121 @@ const { section = 'business' } = Astro.props;
   .burger.open span:first-child { top: 50%; transform: translateY(-50%) rotate(45deg); }
   .burger.open span:last-child { bottom: auto; top: 50%; transform: translateY(-50%) rotate(-45deg); }
 
+  /* Desktop Dropdown */
+  .desktop-only { display: flex; }
+  .mobile-only { display: none; }
+
+  .nav-dropdown {
+    position: relative;
+  }
+  .nav-dropdown__toggle {
+    display: flex; align-items: center; gap: 6px;
+    background: none; border: none; cursor: pointer;
+    font-size: 13px; font-weight: 500; letter-spacing: .03em;
+    color: var(--text-m); transition: color .3s;
+    padding: 8px 0; font-family: inherit;
+  }
+  .nav-dropdown__toggle:hover,
+  .nav-dropdown__toggle[aria-expanded="true"] {
+    color: var(--white);
+  }
+  .nav-dropdown__icon {
+    transition: transform .3s;
+  }
+  .nav-dropdown__toggle[aria-expanded="true"] .nav-dropdown__icon {
+    transform: rotate(180deg);
+  }
+  .nav-dropdown__menu {
+    position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+    background: rgba(26,35,50,.98);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--border-l);
+    border-radius: 8px;
+    padding: 8px 0;
+    min-width: 220px;
+    opacity: 0; visibility: hidden;
+    transition: opacity .2s, visibility .2s;
+    z-index: 400;
+  }
+  .nav-dropdown__toggle[aria-expanded="true"] + .nav-dropdown__menu,
+  .nav-dropdown:hover .nav-dropdown__menu {
+    opacity: 1; visibility: visible;
+  }
+  .nav-dropdown__item {
+    display: block;
+    padding: 10px 20px;
+    font-size: 14px; font-weight: 500;
+    color: var(--text); transition: all .2s;
+    white-space: nowrap;
+  }
+  .nav-dropdown__item:hover {
+    color: var(--white);
+    background: rgba(42,143,122,.1);
+  }
+
   @media (max-width: 960px) {
+    .desktop-only { display: none; }
+    .mobile-only { display: flex; flex-direction: column; }
+
     .hdr-nav { display: none; }
     .burger { display: block; z-index: 301; }
     .hdr-nav.open {
       display: flex; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
       background: var(--navy); z-index: 300;
       flex-direction: column; align-items: center; justify-content: flex-start;
-      gap: 32px; margin-left: 0; padding-top: 120px;
+      gap: 0; margin-left: 0; padding-top: 100px;
       height: 100vh; height: 100dvh;
+      overflow-y: auto;
     }
-    .hdr-nav.open a { font-size: 22px; font-weight: 500; color: var(--text); letter-spacing: .02em; white-space: normal; }
+    .hdr-nav.open > a,
+    .hdr-nav.open .nav-accordion {
+      width: 100%; max-width: 320px;
+    }
+    .hdr-nav.open > a {
+      font-size: 22px; font-weight: 500;
+      color: var(--text); letter-spacing: .02em;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border-l);
+    }
+
+    /* Mobile Accordion */
+    .nav-accordion {
+      border-bottom: 1px solid var(--border-l);
+    }
+    .nav-accordion__toggle {
+      display: flex; align-items: center; justify-content: space-between;
+      width: 100%; padding: 16px 20px;
+      background: none; border: none; cursor: pointer;
+      font-size: 22px; font-weight: 500;
+      color: var(--text); letter-spacing: .02em;
+      font-family: inherit; text-align: left;
+    }
+    .nav-accordion__toggle[aria-expanded="true"] {
+      color: var(--white);
+    }
+    .nav-accordion__icon {
+      transition: transform .3s;
+    }
+    .nav-accordion__toggle[aria-expanded="true"] .nav-accordion__icon {
+      transform: rotate(180deg);
+    }
+    .nav-accordion__content {
+      max-height: 0; overflow: hidden;
+      transition: max-height .3s ease;
+      display: flex; flex-direction: column;
+    }
+    .nav-accordion__toggle[aria-expanded="true"] + .nav-accordion__content {
+      max-height: 300px;
+    }
+    .nav-accordion__item {
+      display: block;
+      padding: 12px 20px 12px 40px;
+      font-size: 16px; font-weight: 400;
+      color: var(--text-m);
+    }
+    .nav-accordion__item:hover {
+      color: var(--white);
+    }
   }
   @media (max-width: 600px) {
     .hdr-cta { display: none; }
@@ -113,6 +276,10 @@ const { section = 'business' } = Astro.props;
     nav?.classList.remove('open');
     burger?.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
+    // Close all accordions
+    document.querySelectorAll('.nav-accordion__toggle').forEach(t => {
+      t.setAttribute('aria-expanded', 'false');
+    });
   }
 
   burger?.addEventListener('click', () => {
@@ -123,6 +290,39 @@ const { section = 'business' } = Astro.props;
   });
 
   nav?.addEventListener('click', (e) => {
-    if ((e.target as HTMLElement).tagName === 'A') closeMenu();
+    const target = e.target as HTMLElement;
+    if (target.tagName === 'A') closeMenu();
+  });
+
+  // Desktop dropdowns - click to toggle
+  document.querySelectorAll('.nav-dropdown__toggle').forEach(toggle => {
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+      // Close other dropdowns
+      document.querySelectorAll('.nav-dropdown__toggle').forEach(t => {
+        t.setAttribute('aria-expanded', 'false');
+      });
+      toggle.setAttribute('aria-expanded', String(!isExpanded));
+    });
+  });
+
+  // Close dropdowns when clicking outside
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.nav-dropdown__toggle').forEach(t => {
+      t.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Mobile accordions
+  document.querySelectorAll('.nav-accordion__toggle').forEach(toggle => {
+    toggle.addEventListener('click', () => {
+      const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+      // Close other accordions
+      document.querySelectorAll('.nav-accordion__toggle').forEach(t => {
+        if (t !== toggle) t.setAttribute('aria-expanded', 'false');
+      });
+      toggle.setAttribute('aria-expanded', String(!isExpanded));
+    });
   });
 </script>
