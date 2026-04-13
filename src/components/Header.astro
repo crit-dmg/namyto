@@ -90,8 +90,8 @@ const { section = 'business' } = Astro.props;
     .hdr-nav.open {
       display: flex; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
       background: var(--navy); z-index: 201;
-      flex-direction: column; align-items: center; justify-content: center;
-      gap: 32px; margin-left: 0;
+      flex-direction: column; align-items: center; justify-content: flex-start;
+      gap: 32px; margin-left: 0; padding-top: 120px;
     }
     .hdr-nav.open a { font-size: 22px; font-weight: 500; color: var(--text); letter-spacing: .02em; white-space: normal; }
   }
