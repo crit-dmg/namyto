@@ -30,7 +30,7 @@ const objects = [
         <div class="nav-dropdown desktop-only">
           <button class="nav-dropdown__toggle" aria-expanded="false" aria-controls="services-menu">
             Услуги
-            <svg class="nav-dropdown__icon" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="nav-dropdown__icon" width="8" height="5" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
           <div class="nav-dropdown__menu" id="services-menu">
             {services.map(s => <a href={s.url} class="nav-dropdown__item">{s.title}</a>)}
@@ -41,7 +41,7 @@ const objects = [
         <div class="nav-dropdown desktop-only">
           <button class="nav-dropdown__toggle" aria-expanded="false" aria-controls="objects-menu">
             Объекты
-            <svg class="nav-dropdown__icon" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="nav-dropdown__icon" width="8" height="5" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
           <div class="nav-dropdown__menu" id="objects-menu">
             {objects.map(o => <a href={o.url} class="nav-dropdown__item">{o.title}</a>)}
@@ -55,7 +55,7 @@ const objects = [
         <div class="nav-accordion mobile-only">
           <button class="nav-accordion__toggle" aria-expanded="false" aria-controls="mobile-services">
             <span>Услуги</span>
-            <svg class="nav-accordion__icon" width="12" height="8" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="nav-accordion__icon" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
           <div class="nav-accordion__content" id="mobile-services">
             {services.map(s => <a href={s.url} class="nav-accordion__item">{s.title}</a>)}
@@ -65,7 +65,7 @@ const objects = [
         <div class="nav-accordion mobile-only">
           <button class="nav-accordion__toggle" aria-expanded="false" aria-controls="mobile-objects">
             <span>Объекты</span>
-            <svg class="nav-accordion__icon" width="12" height="8" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="nav-accordion__icon" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
           <div class="nav-accordion__content" id="mobile-objects">
             {objects.map(o => <a href={o.url} class="nav-accordion__item">{o.title}</a>)}
@@ -109,7 +109,7 @@ const objects = [
     display: flex; align-items: center; gap: 10px;
   }
   .logo-mark { width: 28px; height: 28px; flex-shrink: 0; }
-  .hdr-nav { display: flex; gap: 28px; margin-left: auto; }
+  .hdr-nav { display: flex; align-items: center; gap: 28px; margin-left: auto; }
   .hdr-nav a {
     font-size: 13px; font-weight: 500; letter-spacing: .03em;
     color: var(--text-m); transition: color .3s; white-space: nowrap;
@@ -151,11 +151,11 @@ const objects = [
     position: relative;
   }
   .nav-dropdown__toggle {
-    display: flex; align-items: center; gap: 6px;
+    display: flex; align-items: center; gap: 4px;
     background: none; border: none; cursor: pointer;
     font-size: 13px; font-weight: 500; letter-spacing: .03em;
     color: var(--text-m); transition: color .3s;
-    padding: 8px 0; font-family: inherit;
+    padding: 0; font-family: inherit;
   }
   .nav-dropdown__toggle:hover,
   .nav-dropdown__toggle[aria-expanded="true"] {
