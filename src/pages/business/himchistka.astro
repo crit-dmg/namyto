@@ -351,10 +351,19 @@ const faqData = [
     .sp-zone li::before { content: ''; position: absolute; left: 0; top: 14px; width: 5px; height: 5px; background: var(--teal); border-radius: 50%; }
 
     .sp-table-wrap { margin: 40px 0; overflow-x: auto; }
-    .sp-table { width: 100%; border-collapse: collapse; }
-    .sp-section--light .sp-table th { text-align: left; padding: 14px 16px; font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--text-dm); border-bottom: 1px solid var(--border-d); background: var(--off); }
-    .sp-section--light .sp-table td { padding: 16px; font-size: 15px; color: var(--text-dm); border-bottom: 1px solid var(--border-d); background: var(--white); }
-    .sp-section--light .sp-table tr:hover td { background: var(--off); }
+    .sp-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+    .sp-section--light .sp-table th,
+    .sp-section--dark .sp-table th { text-align: left; padding: 14px 16px; font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--text-dm); border-bottom: 1px solid var(--border-d); background: var(--off); vertical-align: middle; }
+    .sp-section--light .sp-table td,
+    .sp-section--dark .sp-table td { text-align: left; padding: 14px 16px; font-size: 15px; color: var(--text-dm); border-bottom: 1px solid var(--border-d); background: var(--white); vertical-align: middle; }
+    .sp-section--light .sp-table tr:hover td,
+    .sp-section--dark .sp-table tr:hover td { background: var(--off); }
+    .sp-table th:nth-child(1),
+    .sp-table td:nth-child(1) { width: 40%; }
+    .sp-table th:nth-child(2),
+    .sp-table td:nth-child(2) { width: 25%; }
+    .sp-table th:nth-child(3),
+    .sp-table td:nth-child(3) { width: 35%; }
 
     .sp-note { background: var(--navy-2); padding: 20px 24px; border-left: 3px solid var(--teal); margin: 32px 0; font-size: 15px; color: var(--text); }
 
