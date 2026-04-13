@@ -1,0 +1,33 @@
+---
+import BusinessLayout from '../../layouts/BusinessLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const breadcrumbItems = [
+  { name: 'Главная', href: '/' },
+  { name: 'Услуги', href: '/business/' },
+  { name: 'Уборка торговых центров', href: '/business/uborka-torgovyh-centrov/' }
+];
+---
+
+<BusinessLayout
+  title="Уборка торговых центров | Намыто"
+  description="Профессиональная уборка торговых центров, магазинов и ТЦ в Москве."
+>
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <section class="sp-hero">
+    <div class="container">
+      <h1>Уборка торговых центров</h1>
+      <p class="sp-hero-intro">Раздел в разработке. Скоро здесь появится подробная информация об услугах.</p>
+      <a href="/business/" class="btn-primary">Вернуться к услугам</a>
+    </div>
+  </section>
+
+  <style>
+    .sp-hero { padding: 160px 0 100px; background: var(--navy); text-align: center; }
+    .sp-hero h1 { font-family: var(--serif); font-size: clamp(32px, 4vw, 56px); color: var(--white); margin-bottom: 20px; }
+    .sp-hero-intro { font-size: 17px; color: var(--text); max-width: 600px; margin: 0 auto 40px; line-height: 1.7; }
+    .btn-primary { display: inline-block; background: var(--teal); color: var(--white); padding: 14px 32px; border-radius: 4px; font-size: 14px; font-weight: 600; text-decoration: none; transition: background .3s; }
+    .btn-primary:hover { background: var(--teal-2); }
+  </style>
+</BusinessLayout>
