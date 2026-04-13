@@ -129,7 +129,7 @@ const faqData = [
         <h2>Какие окна моем</h2>
         <p>Работаем с любыми типами остекления — от стандартных офисных окон до сложных архитектурных конструкций.</p>
       </div>
-      <div class="sp-zones" style="grid-template-columns: repeat(4, 1fr);">
+      <div class="sp-zones sp-zones--4">
         <div class="sp-zone">
           <h3>Офисы</h3>
           <ul>
@@ -302,6 +302,7 @@ const faqData = [
     .sp-prose p:last-child { margin-bottom: 0; }
 
     .sp-zones { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 40px 0; }
+    .sp-zones--4 { grid-template-columns: repeat(4, 1fr); }
     .sp-zone { background: var(--off); padding: 24px; }
     .sp-section--dark .sp-zone { background: var(--navy-2); }
     .sp-zone h3 { font-family: var(--serif); font-size: 18px; color: var(--navy); margin-bottom: 16px; }
@@ -343,14 +344,19 @@ const faqData = [
     .sp-faq-body { padding: 0 0 20px; font-size: 15px; color: var(--text-dm); line-height: 1.7; }
     .sp-section--dark .sp-faq-body { color: var(--text); }
 
+    @media (max-width: 1200px) {
+      .sp-zones--4 { grid-template-columns: repeat(2, 1fr); }
+    }
     @media (max-width: 960px) {
       .sp-hero-bar { grid-template-columns: repeat(2, 1fr); }
       .sp-zones { grid-template-columns: 1fr 1fr; }
+      .sp-zones--4 { grid-template-columns: 1fr 1fr; }
       .sp-steps { grid-template-columns: repeat(3, 1fr); }
     }
     @media (max-width: 600px) {
       .sp-hero-bar { grid-template-columns: 1fr; }
       .sp-zones { grid-template-columns: 1fr; }
+      .sp-zones--4 { grid-template-columns: 1fr; }
       .sp-steps { grid-template-columns: 1fr; }
     }
   </style>
