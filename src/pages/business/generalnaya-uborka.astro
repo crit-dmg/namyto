@@ -389,4 +389,87 @@ const faqData = [
       acceptedAnswer: { '@type': 'Answer', text: item.a }
     }))
   }} />
+
+  <style>
+    .sp-hero { padding: 120px 0 60px; background: var(--navy); }
+    .sp-hero h1 { font-family: var(--serif); font-size: clamp(32px, 4vw, 56px); color: var(--white); margin-bottom: 20px; }
+    .sp-hero-intro { font-size: 17px; color: var(--text); max-width: 720px; margin-bottom: 40px; line-height: 1.7; }
+    .sp-hero-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; border-top: 1px solid var(--border-l); padding-top: 28px; }
+    .sp-hero-bar-item .hb-label { font-size: 10px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--text-m); margin-bottom: 6px; }
+    .sp-hero-bar-item .hb-value { font-family: var(--serif); font-size: 16px; font-weight: 700; color: var(--white); }
+
+    .sp-section { padding: clamp(60px, 8vw, 100px) 0; }
+    .sp-section--light { background: var(--white); }
+    .sp-section--dark { background: var(--navy); }
+    .sp-section--off { background: var(--off); }
+
+    .sp-prose { max-width: 760px; }
+    .sp-section--light .sp-prose h2 { font-family: var(--serif); font-size: clamp(26px, 3vw, 40px); color: var(--navy); margin-bottom: 20px; }
+    .sp-section--dark .sp-prose h2 { font-family: var(--serif); font-size: clamp(26px, 3vw, 40px); color: var(--white); margin-bottom: 20px; }
+    .sp-section--off .sp-prose h2 { font-family: var(--serif); font-size: clamp(26px, 3vw, 40px); color: var(--navy); margin-bottom: 20px; }
+    .sp-prose h3 { font-family: var(--serif); font-size: 20px; color: inherit; margin: 32px 0 12px; }
+    .sp-section--light .sp-prose p { font-size: 15px; color: var(--text-dm); line-height: 1.75; margin-bottom: 16px; }
+    .sp-section--dark .sp-prose p { font-size: 15px; color: var(--text); line-height: 1.75; margin-bottom: 16px; }
+    .sp-section--off .sp-prose p { font-size: 15px; color: var(--text-dm); line-height: 1.75; margin-bottom: 16px; }
+    .sp-prose ul { margin: 16px 0; padding-left: 20px; }
+    .sp-section--light .sp-prose li { font-size: 15px; color: var(--text-dm); margin-bottom: 8px; }
+    .sp-section--dark .sp-prose li { font-size: 15px; color: var(--text); margin-bottom: 8px; }
+    .sp-section--off .sp-prose li { font-size: 15px; color: var(--text-dm); margin-bottom: 8px; }
+
+    .sp-zones { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 40px 0; }
+    .sp-zone { background: var(--off); padding: 24px; }
+    .sp-section--dark .sp-zone { background: var(--navy-2); }
+    .sp-zone h3 { font-family: var(--serif); font-size: 18px; color: var(--navy); margin-bottom: 16px; }
+    .sp-section--dark .sp-zone h3 { color: var(--white); }
+    .sp-zone ul { list-style: none; padding: 0; margin: 0; }
+    .sp-zone li { font-size: 14px; color: var(--text-dm); padding: 6px 0; padding-left: 16px; position: relative; }
+    .sp-section--dark .sp-zone li { color: var(--text-m); }
+    .sp-zone li::before { content: ''; position: absolute; left: 0; top: 14px; width: 5px; height: 5px; background: var(--teal); border-radius: 50%; }
+
+    .sp-table-wrap { margin: 40px 0; overflow-x: auto; }
+    .sp-table { width: 100%; border-collapse: collapse; }
+    .sp-table th { text-align: left; padding: 14px 16px; font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--text-m); border-bottom: 1px solid var(--border-l); background: var(--navy-2); }
+    .sp-table td { padding: 16px; font-size: 15px; color: var(--text); border-bottom: 1px solid var(--border-l); }
+    .sp-table tr:hover td { background: var(--navy-2); }
+
+    .sp-note { background: var(--navy-2); padding: 20px 24px; border-left: 3px solid var(--teal); margin: 32px 0; font-size: 15px; color: var(--text); }
+
+    .sp-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 40px 0; }
+    .sp-compare-col { padding: 28px; }
+    .sp-compare-col--muted { background: var(--off); }
+    .sp-compare-col--accent { background: var(--navy-2); border: 1px solid var(--teal); }
+    .sp-compare-col h3 { font-family: var(--serif); font-size: 20px; margin-bottom: 20px; }
+    .sp-compare-col--muted h3 { color: var(--navy); }
+    .sp-compare-col--accent h3 { color: var(--teal); }
+    .sp-compare-col ul { list-style: none; padding: 0; margin: 0; }
+    .sp-compare-col li { font-size: 14px; padding: 8px 0; padding-left: 20px; position: relative; }
+    .sp-compare-col--muted li { color: var(--text-dm); }
+    .sp-compare-col--accent li { color: var(--text); }
+    .sp-compare-col li::before { content: '—'; position: absolute; left: 0; top: 7px; color: var(--teal); }
+
+    .sp-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; margin: 40px 0; }
+    .sp-step { padding: 24px; background: var(--navy-2); border-top: 2px solid var(--teal); }
+    .sp-step-title { font-family: var(--serif); font-size: 18px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+    .sp-step p { font-size: 13px; color: var(--text-m); line-height: 1.6; }
+
+    .sp-faq { margin-top: 24px; }
+    .sp-faq details { border-bottom: 1px solid var(--border-d); }
+    .sp-faq summary { font-size: 16px; font-weight: 600; color: var(--navy); padding: 20px 0; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+    .sp-faq summary::after { content: '+'; font-size: 20px; color: var(--teal); }
+    .sp-faq details[open] summary::after { content: '—'; }
+    .sp-faq-body { padding: 0 0 20px; font-size: 15px; color: var(--text-dm); line-height: 1.7; }
+
+    @media (max-width: 960px) {
+      .sp-hero-bar { grid-template-columns: repeat(2, 1fr); }
+      .sp-zones { grid-template-columns: 1fr 1fr; }
+      .sp-compare { grid-template-columns: 1fr; }
+      .sp-steps { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .sp-hero-bar { grid-template-columns: 1fr; }
+      .sp-zones { grid-template-columns: 1fr; }
+      .sp-steps { grid-template-columns: 1fr; }
+      .sp-compare-col { padding: 20px; }
+    }
+  </style>
 </BusinessLayout>
