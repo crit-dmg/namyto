@@ -5,42 +5,61 @@ import CtaForm from '../../components/CtaForm.astro';
 import Footer from '../../components/Footer.astro';
 import WhatsApp from '../../components/WhatsApp.astro';
 
-const title = 'Уборка ресторанов и кафе Москва — клининг HoReCa от 50 ₽/м²';
-const description = 'Профессиональная уборка ресторанов, кафе, баров. Утренняя и послеобеденная смена. Дезинфекция кухни, зала, санузлов.';
+const title = 'Уборка ресторанов и кафе Москва — от 50 ₽/м²';
+const description = 'Профессиональная уборка ресторанов, кафе, баров в Москве. Утренняя и вечерняя уборка, мойка кухни, дезинфекция.';
 ---
 
 <BaseLayout title={title} description={description}>
   <Header />
 
   <main>
-    <section class="bg-gradient-to-br from-slate-900 to-slate-800 text-white pt-32 pb-20">
-      <div class="container mx-auto px-4">
-        <div class="flex gap-2 text-sm text-slate-400 mb-6">
-          <a href="/" class="text-teal-400 hover:underline">Главная</a>
+    <section class="s-hero">
+      <div class="container">
+        <div class="breadcrumbs">
+          <a href="/">Главная</a>
           <span>/</span>
           <span>Рестораны</span>
         </div>
 
-        <h1 class="font-serif text-4xl md:text-5xl font-bold mb-5 max-w-2xl">
-          Уборка ресторанов, кафе и баров
-        </h1>
+        <h1>Уборка ресторанов и HoReCa</h1>
 
-        <p class="text-lg text-slate-300 max-w-xl mb-10 leading-relaxed">
-          Специализированный клининг для заведений общепита любого формата. Понимаем специфику HoReCa: утренняя подготовка, дневная поддержка, ночная генеральная уборка.
-        </p>
+        <p>Специализированный клининг для ресторанов, кафе, баров. Утренняя подготовка к открытию, вечерняя уборка после закрытия. Все сотрудники с санкнижками.</p>
 
-        <div class="flex flex-wrap gap-12">
-          <div>
-            <div class="text-xs uppercase tracking-widest text-slate-400 mb-1">Стоимость</div>
-            <div class="text-2xl font-bold">от 50 ₽/м²</div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-label">Стоимость</div>
+            <div class="stat-value">от 50 ₽/м²</div>
           </div>
-          <div>
-            <div class="text-xs uppercase tracking-widest text-slate-400 mb-1">Персонал</div>
-            <div class="text-2xl font-bold">С санкнижками</div>
+          <div class="stat-item">
+            <div class="stat-label">График</div>
+            <div class="stat-value">утро/вечер</div>
           </div>
-          <div>
-            <div class="text-xs uppercase tracking-widest text-slate-400 mb-1">Режим</div>
-            <div class="text-2xl font-bold">7 дней/неделю</div>
+          <div class="stat-item">
+            <div class="stat-label">Санкнижки</div>
+            <div class="stat-value">100%</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="s-section bg-alt">
+      <div class="container">
+        <h2>Что входит в уборку ресторана</h2>
+        <div class="grid-3">
+          <div class="info-card">
+            <div class="ic-num">01</div>
+            <h3>Зал</h3>
+            <p>Уборка зала для гостей: протирка столов, стульев, барной стойки. Мытьё полов, вывоз мусора.</p>
+          </div>
+          <div class="info-card">
+            <div class="ic-num">02</div>
+            <h3>Кухня</h3>
+            <p>Мойка кухонного оборудования, вытяжек, полов. Дезинфекция поверхностей, удаление жира.</p>
+          </div>
+          <div class="info-card">
+            <div class="ic-num">03</div>
+            <h3>Санузлы</h3>
+            <p>Тщательная дезинфекция сантехники, зеркал, плитки. Пополнение расходных материалов.</p>
           </div>
         </div>
       </div>

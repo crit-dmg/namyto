@@ -1,0 +1,78 @@
+---
+import services from '../data/services.json';
+---
+<section class="services" id="services">
+<div class="container">
+  <div class="services-hd f">
+    <h2>Услуги</h2>
+    <p>Точная стоимость — после осмотра объекта. Цены ниже — ориентир.</p>
+  </div>
+  <ul class="srv-list">
+    {services.map((s, i) => (
+      <li class="f" style={`--i:${i}`}>
+        <a href={`/business/${s.slug}/`} class="srv-link">
+          <div>
+            <div class="srv-name">{s.name}</div>
+            <div class="srv-sub">{s.shortDesc}</div>
+          </div>
+          <span class="srv-price">от {s.priceFrom} ₽ <small>/ {s.priceUnit}</small></span>
+          <div class="srv-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </a>
+      </li>
+    ))}
+  </ul>
+</div>
+</section>
+
+<style>
+.services {
+  background: var(--navy);
+  padding: clamp(80px, 10vw, 140px) 0;
+}
+.services-hd {
+  display: flex; justify-content: space-between;
+  align-items: flex-end; gap: 32px; flex-wrap: wrap;
+  margin-bottom: clamp(48px, 6vw, 72px);
+}
+.services-hd h2 {
+  font-family: var(--serif);
+  font-size: clamp(28px, 3.2vw, 44px);
+  font-weight: 700; letter-spacing: -.015em;
+  color: var(--white); line-height: 1.1;
+}
+.services-hd p {
+  font-size: 14px; color: var(--text-m);
+  max-width: 300px; line-height: 1.7; text-align: right;
+}
+.srv-list { list-style: none; }
+.srv-link {
+  display: grid; grid-template-columns: 1fr max-content 20px;
+  align-items: baseline; gap: 24px;
+  padding: 28px 0; border-bottom: 1px solid var(--border-l);
+  transition: all .4s ease;
+}
+.srv-link:first-child { border-top: 1px solid var(--border-l); }
+.srv-link:hover { padding-left: 12px; }
+.srv-name {
+  font-family: var(--serif);
+  font-size: clamp(18px, 2vw, 26px);
+  font-weight: 700; color: var(--white);
+  letter-spacing: -.01em; transition: color .3s;
+}
+.srv-link:hover .srv-name { color: var(--teal); }
+.srv-sub { font-size: 13px; color: var(--text-m); margin-top: 4px; }
+.srv-price {
+  font-size: 15px; font-weight: 600; color: var(--text);
+  white-space: nowrap; font-variant-numeric: tabular-nums;
+}
+.srv-price small { font-weight: 400; color: var(--text-m); }
+.srv-arrow { color: var(--text-m); transition: all .3s; }
+.srv-link:hover .srv-arrow { color: var(--teal); transform: translateX(3px); }
+
+@media (max-width: 600px) {
+  .srv-link { grid-template-columns: 1fr 16px; }
+  .srv-price { display: none; }
+}
+</style>

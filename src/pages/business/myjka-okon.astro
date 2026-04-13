@@ -6,41 +6,60 @@ import Footer from '../../components/Footer.astro';
 import WhatsApp from '../../components/WhatsApp.astro';
 
 const title = 'Мойка окон в офисе Москва от 250 ₽/окно';
-const description = 'Мойка окон и фасадов коммерческих зданий в Москве. Промышленные альпинисты с допуском. Работаем на любой высоте.';
+const description = 'Профессиональная мойка окон в офисах Москвы. Работаем на любой высоте, с гарантией качества.';
 ---
 
 <BaseLayout title={title} description={description}>
   <Header />
 
   <main>
-    <section class="bg-gradient-to-br from-slate-900 to-slate-800 text-white pt-32 pb-20">
-      <div class="container mx-auto px-4">
-        <div class="flex gap-2 text-sm text-slate-400 mb-6">
-          <a href="/" class="text-teal-400 hover:underline">Главная</a>
+    <section class="s-hero">
+      <div class="container">
+        <div class="breadcrumbs">
+          <a href="/">Главная</a>
           <span>/</span>
           <span>Мойка окон</span>
         </div>
 
-        <h1 class="font-serif text-4xl md:text-5xl font-bold mb-5 max-w-2xl">
-          Мойка окон в офисе и бизнес-центре
-        </h1>
+        <h1>Мойка окон в офисе</h1>
 
-        <p class="text-lg text-slate-300 max-w-xl mb-10 leading-relaxed">
-          Профессиональная мойка окон на любой высоте. Промышленные альпинисты с допуском, страховкой и опытом работы от 5 лет.
-        </p>
+        <p>Моем окна любой высоты и сложности. Работаем с промышленными альпинистами для высотных объектов. Чистота без разводов.</p>
 
-        <div class="flex flex-wrap gap-12">
-          <div>
-            <div class="text-xs uppercase tracking-widest text-slate-400 mb-1">Стоимость</div>
-            <div class="text-2xl font-bold">от 250 ₽/окно</div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-label">Обычное окно</div>
+            <div class="stat-value">от 250 ₽</div>
           </div>
-          <div>
-            <div class="text-xs uppercase tracking-widest text-slate-400 mb-1">Высота</div>
-            <div class="text-2xl font-bold">до 100 м</div>
+          <div class="stat-item">
+            <div class="stat-label">Панорамное</div>
+            <div class="stat-value">от 500 ₽</div>
           </div>
-          <div>
-            <div class="text-xs uppercase tracking-widest text-slate-400 mb-1">Безопасность</div>
-            <div class="text-2xl font-bold">Страховка</div>
+          <div class="stat-item">
+            <div class="stat-label">Высота</div>
+            <div class="stat-value">любая</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="s-section bg-alt">
+      <div class="container">
+        <h2>Что входит в мойку окон</h2>
+        <div class="grid-3">
+          <div class="info-card">
+            <div class="ic-num">01</div>
+            <h3>Стекла</h3>
+            <p>Мойка стекол с обеих сторон. Удаление пыли, грязи, следов дождя. Без разводов и разводов.</p>
+          </div>
+          <div class="info-card">
+            <div class="ic-num">02</div>
+            <h3>Рамы и откосы</h3>
+            <p>Очистка рам, подоконников, откосов. Удаление пыли и загрязнений из труднодоступных мест.</p>
+          </div>
+          <div class="info-card">
+            <div class="ic-num">03</div>
+            <h3>Москитные сетки</h3>
+            <p>Чистка москитных сеток, жалюзи. Работаем аккуратно, не повреждаем конструкции.</p>
           </div>
         </div>
       </div>

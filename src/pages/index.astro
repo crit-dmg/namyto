@@ -1,83 +1,33 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Header from '../components/Header.astro';
+import BusinessLayout from '../layouts/BusinessLayout.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import ServiceList from '../components/ServiceList.astro';
+import ObjectGrid from '../components/ObjectGrid.astro';
+import ProcessSteps from '../components/ProcessSteps.astro';
+import FormatGrid from '../components/FormatGrid.astro';
 import CtaForm from '../components/CtaForm.astro';
-import Footer from '../components/Footer.astro';
-import WhatsApp from '../components/WhatsApp.astro';
-
-const title = 'Намыто — профессиональный клининг для бизнеса в Москве';
-const description = 'Уборка офисов, бизнес-центров, ресторанов и складов в Москве. Работаем по договору, с НДС. Бесплатный расчёт стоимости.';
+import SchemaOrg from '../components/SchemaOrg.astro';
 ---
-
-<BaseLayout title={title} description={description}>
-  <Header />
-
-  <main>
-    <!-- Hero -->
-    <section class="bg-gradient-to-br from-slate-900 to-slate-800 text-white pt-32 pb-20">
-      <div class="container mx-auto px-4">
-        <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6 max-w-3xl">
-          Профессиональный клининг для бизнеса
-        </h1>
-        <p class="text-lg md:text-xl text-slate-300 max-w-2xl mb-10 leading-relaxed">
-          Уборка офисов, бизнес-центров, ресторанов и складов в Москве.
-          Работаем по договору, с НДС.
-        </p>
-        <div class="flex flex-wrap gap-4">
-          <a href="#cta" class="px-8 py-4 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded transition-colors">
-            Рассчитать стоимость
-          </a>
-          <a href="tel:+74951234567" class="px-8 py-4 border border-white/30 hover:border-white text-white font-semibold rounded transition-colors">
-            +7 495 123-45-67
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Services -->
-    <section class="py-20 bg-slate-950">
-      <div class="container mx-auto px-4">
-        <h2 class="font-serif text-3xl md:text-4xl font-bold text-white mb-12 text-center">
-          Наши услуги
-        </h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <a href="/business/uborka-ofisov/" class="group bg-slate-900 p-8 border border-slate-800 hover:border-teal-600 transition-colors">
-            <h3 class="text-xl font-semibold text-white mb-3 group-hover:text-teal-400 transition-colors">Уборка офисов</h3>
-            <p class="text-slate-400 mb-4">Ежедневная уборка рабочих помещений</p>
-            <span class="text-teal-500">от 40 ₽/м² →</span>
-          </a>
-          <a href="/business/generalnaya-uborka/" class="group bg-slate-900 p-8 border border-slate-800 hover:border-teal-600 transition-colors">
-            <h3 class="text-xl font-semibold text-white mb-3 group-hover:text-teal-400 transition-colors">Генеральная уборка</h3>
-            <p class="text-slate-400 mb-4">Разовая уборка для приведения в порядок</p>
-            <span class="text-teal-500">от 80 ₽/м² →</span>
-          </a>
-          <a href="/business/himchistka/" class="group bg-slate-900 p-8 border border-slate-800 hover:border-teal-600 transition-colors">
-            <h3 class="text-xl font-semibold text-white mb-3 group-hover:text-teal-400 transition-colors">Химчистка</h3>
-            <p class="text-slate-400 mb-4">Чистка ковров и мягкой мебели</p>
-            <span class="text-teal-500">от 90 ₽/м² →</span>
-          </a>
-          <a href="/business/myjka-okon/" class="group bg-slate-900 p-8 border border-slate-800 hover:border-teal-600 transition-colors">
-            <h3 class="text-xl font-semibold text-white mb-3 group-hover:text-teal-400 transition-colors">Мойка окон</h3>
-            <p class="text-slate-400 mb-4">Мойка окон и фасадов любой высоты</p>
-            <span class="text-teal-500">от 250 ₽/окно →</span>
-          </a>
-          <a href="/business/uborka-biznes-centrov/" class="group bg-slate-900 p-8 border border-slate-800 hover:border-teal-600 transition-colors">
-            <h3 class="text-xl font-semibold text-white mb-3 group-hover:text-teal-400 transition-colors">Бизнес-центры</h3>
-            <p class="text-slate-400 mb-4">Комплексное обслуживание БЦ</p>
-            <span class="text-teal-500">от 45 ₽/м² →</span>
-          </a>
-          <a href="/business/uborka-restoranov/" class="group bg-slate-900 p-8 border border-slate-800 hover:border-teal-600 transition-colors">
-            <h3 class="text-xl font-semibold text-white mb-3 group-hover:text-teal-400 transition-colors">Рестораны</h3>
-            <p class="text-slate-400 mb-4">Клининг HoReCa с санкнижками</p>
-            <span class="text-teal-500">от 50 ₽/м² →</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <CtaForm />
-  </main>
-
-  <Footer />
-  <WhatsApp />
-</BaseLayout>
+<BusinessLayout
+  title="Намыто — Обслуживание коммерческих помещений в Москве"
+  description="Клининг для бизнеса. Договор, фотоотчёт, фиксированная цена. Офисы, склады, торговые центры. Москва и МО."
+>
+  <Hero />
+  <About />
+  <ServiceList />
+  <ObjectGrid />
+  <ProcessSteps />
+  <FormatGrid />
+  <CtaForm />
+  <SchemaOrg type="LocalBusiness" data={{
+    name: 'Намыто',
+    description: 'Обслуживание коммерческих помещений в Москве',
+    url: 'https://namyto.ru',
+    telephone: '+74951234567',
+    email: 'info@namyto.ru',
+    address: { '@type': 'PostalAddress', addressLocality: 'Москва', addressCountry: 'RU' },
+    areaServed: { '@type': 'City', name: 'Москва' },
+    priceRange: '₽₽'
+  }} />
+</BusinessLayout>

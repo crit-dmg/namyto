@@ -1,14 +1,18 @@
 ---
 import '../styles/global.css';
+import WhatsApp from '../components/WhatsApp.astro';
 
 interface Props {
   title: string;
-  description?: string;
+  description: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  canonical?: string;
 }
 
-const { title, description = 'Профессиональный клининг для бизнеса в Москве' } = Astro.props;
+const { title, description, ogTitle, ogDescription, canonical } = Astro.props;
+const canonicalUrl = canonical || Astro.url.href;
 ---
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -16,12 +20,24 @@ const { title, description = 'Профессиональный клининг д
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{title}</title>
   <meta name="description" content={description}>
+  <meta property="og:title" content={ogTitle || title}>
+  <meta property="og:description" content={ogDescription || description}>
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <link rel="canonical" href={canonicalUrl}>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&family=Onest:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
-<body class="bg-slate-950">
+<body>
   <slot />
+  <WhatsApp />
+  <script>
+    const io = new IntersectionObserver(e => e.forEach(el => {
+      if (el.isIntersecting) { el.target.classList.add('on'); io.unobserve(el.target); }
+    }), { threshold: 0.12 });
+    document.querySelectorAll('.f').forEach(el => io.observe(el));
+  </script>
 </body>
 </html>

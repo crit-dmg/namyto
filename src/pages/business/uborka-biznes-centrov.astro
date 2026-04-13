@@ -5,42 +5,61 @@ import CtaForm from '../../components/CtaForm.astro';
 import Footer from '../../components/Footer.astro';
 import WhatsApp from '../../components/WhatsApp.astro';
 
-const title = 'Уборка бизнес-центров Москва — профессиональный клининг от 45 ₽/м²';
-const description = 'Комплексная уборка бизнес-центров, БЦ класса A, B, C. Поддержание премиального имиджа, работа 24/7, штатные уборщики.';
+const title = 'Уборка бизнес-центров Москва — от 45 ₽/м²';
+const description = 'Комплексная уборка бизнес-центров в Москве. Ежедневный клининг, уборка МОП, вывоз мусора.';
 ---
 
 <BaseLayout title={title} description={description}>
   <Header />
 
   <main>
-    <section class="bg-gradient-to-br from-slate-900 to-slate-800 text-white pt-32 pb-20">
-      <div class="container mx-auto px-4">
-        <div class="flex gap-2 text-sm text-slate-400 mb-6">
-          <a href="/" class="text-teal-400 hover:underline">Главная</a>
+    <section class="s-hero">
+      <div class="container">
+        <div class="breadcrumbs">
+          <a href="/">Главная</a>
           <span>/</span>
           <span>Бизнес-центры</span>
         </div>
 
-        <h1 class="font-serif text-4xl md:text-5xl font-bold mb-5 max-w-2xl">
-          Профессиональная уборка бизнес-центров
-        </h1>
+        <h1>Уборка бизнес-центров</h1>
 
-        <p class="text-lg text-slate-300 max-w-xl mb-10 leading-relaxed">
-          Полный комплекс клининговых услуг для деловых центров любого класса. Поддерживаем репутацию вашего БЦ через безупречную чистоту.
-        </p>
+        <p>Комплексное обслуживание БЦ и торговых центров. Уборка МОП, лестниц, лифтов, паркинга. Работаем круглосуточно.</p>
 
-        <div class="flex flex-wrap gap-12">
-          <div>
-            <div class="text-xs uppercase tracking-widest text-slate-400 mb-1">Стоимость</div>
-            <div class="text-2xl font-bold">от 45 ₽/м²</div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-label">Стоимость</div>
+            <div class="stat-value">от 45 ₽/м²</div>
           </div>
-          <div>
-            <div class="text-xs uppercase tracking-widest text-slate-400 mb-1">Площадь</div>
-            <div class="text-2xl font-bold">от 1000 м²</div>
+          <div class="stat-item">
+            <div class="stat-label">График</div>
+            <div class="stat-value">24/7</div>
           </div>
-          <div>
-            <div class="text-xs uppercase tracking-widest text-slate-400 mb-1">Режим</div>
-            <div class="text-2xl font-bold">24/7</div>
+          <div class="stat-item">
+            <div class="stat-label">Бригада</div>
+            <div class="stat-value">от 3 чел</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="s-section bg-alt">
+      <div class="container">
+        <h2>Что входит в уборку БЦ</h2>
+        <div class="grid-3">
+          <div class="info-card">
+            <div class="ic-num">01</div>
+            <h3>МОП</h3>
+            <p>Уборка мест общего пользования: коридоры, лестницы, лифты, холлы. Ежедневная поддержание чистоты.</p>
+          </div>
+          <div class="info-card">
+            <div class="ic-num">02</div>
+            <h3>Санузлы</h3>
+            <p>Чистка сантехники, дезинфекция, пополнение расходников. Работаем по ночам без мешать арендаторам.</p>
+          </div>
+          <div class="info-card">
+            <div class="ic-num">03</div>
+            <h3>Паркинг</h3>
+            <p>Уборка подземного паркинга: мойка полов, вывоз мусора, чистка колёсных барьеров.</p>
           </div>
         </div>
       </div>

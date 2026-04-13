@@ -1,23 +1,113 @@
-@import "tailwindcss";
+/* ── RESET ── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
+/* ── TOKENS ── */
 :root {
-  --navy: rgb(26, 35, 50);
-  --white: rgb(255, 255, 255);
-  --off: rgb(246, 247, 249);
-  --teal: rgb(42, 143, 122);
-  --text: rgb(230, 230, 230);
-  --text-m: rgb(180, 180, 180);
-  --text-d: rgb(200, 200, 200);
-  --text-dm: rgb(100, 100, 100);
-  --border-d: rgb(220, 220, 220);
-  --border-l: rgba(255, 255, 255, 0.1);
-  --serif: 'Merriweather', Georgia, serif;
+  --navy:     #1A2332;
+  --navy-2:   #232E3F;
+  --navy-3:   #2C3A4E;
+  --white:    #FFFFFF;
+  --off:      #F6F7F9;
+  --teal:     #2A8F7A;
+  --teal-l:   #35A68E;
+  --cream:    #F0EDE6;
+  --text:     #D4D8DE;
+  --text-m:   rgba(212,216,222,.55);
+  --text-d:   #3A4250;
+  --text-dm:  #7A8494;
+  --border-l: rgba(255,255,255,.08);
+  --border-d: rgba(26,35,50,.1);
+  --serif:    'PT Serif', Georgia, serif;
+  --sans:     'Onest', system-ui, sans-serif;
 }
+
+/* ── BASE ── */
+html { scroll-behavior: smooth; }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--sans);
+  background: var(--navy);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
 }
 
-.font-serif {
-  font-family: var(--serif);
+a { color: inherit; text-decoration: none; }
+
+/* ── LAYOUT ── */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(24px, 5vw, 56px);
 }
+
+/* ── FADE IN WITH STAGGER ── */
+.f {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity .8s ease, transform .8s ease;
+  transition-delay: calc(var(--i, 0) * 80ms);
+}
+.f.on { opacity: 1; transform: none; }
+
+/* ── PHOTO PLACEHOLDERS ── */
+.ph {
+  background: var(--navy-3);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-m); font-size: 13px; font-weight: 500;
+  letter-spacing: .04em;
+  position: relative; overflow: hidden;
+}
+.ph::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(42,143,122,.08) 0%, transparent 60%);
+}
+.ph-light {
+  background: var(--cream);
+  color: var(--text-dm);
+}
+.ph-light::after {
+  background: linear-gradient(135deg, rgba(42,143,122,.06) 0%, transparent 60%);
+}
+
+/* ── SHARED SECTION LABEL ── */
+.sec-label {
+  font-size: 11px; font-weight: 600;
+  letter-spacing: .16em; text-transform: uppercase;
+  color: var(--teal); margin-bottom: 16px;
+  display: flex; align-items: center; gap: 10px;
+}
+.sec-label::before {
+  content: ''; width: 20px; height: 1px; background: var(--teal);
+}
+
+/* ── FORM ELEMENTS ── */
+.fm-field { margin-bottom: 16px; }
+.fm-label {
+  display: block; font-size: 11px; font-weight: 600;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--text-m); margin-bottom: 6px;
+}
+.fm-input {
+  width: 100%; padding: 14px 16px;
+  border: 1px solid var(--border-l);
+  background: var(--navy-2); color: var(--white);
+  font-family: var(--sans); font-size: 15px;
+  outline: none; transition: border-color .3s, box-shadow .3s;
+}
+.fm-input:focus { border-color: var(--teal); box-shadow: 0 0 0 2px rgba(42,143,122,.25); }
+.fm-input::placeholder { color: var(--text-m); }
+.fm-select {
+  -webkit-appearance: none; cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%237A8494' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 16px center;
+}
+.fm-btn {
+  width: 100%; margin-top: 8px; padding: 16px;
+  background: var(--teal); color: var(--white);
+  font-family: var(--sans); font-size: 14px; font-weight: 600;
+  letter-spacing: .04em;
+  border: none; cursor: pointer; transition: background .3s;
+}
+.fm-btn:hover { background: var(--teal-l); }
+.fm-btn:active { transform: translateY(1px); }

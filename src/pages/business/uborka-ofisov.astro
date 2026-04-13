@@ -1,85 +1,405 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import Header from '../../components/Header.astro';
+import BusinessLayout from '../../layouts/BusinessLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import CtaForm from '../../components/CtaForm.astro';
-import Footer from '../../components/Footer.astro';
-import WhatsApp from '../../components/WhatsApp.astro';
+import SchemaOrg from '../../components/SchemaOrg.astro';
 
-const title = 'Уборка офисов Москва — ежедневный клининг от 40 ₽/м²';
-const description = 'Профессиональная уборка офисов в Москве. Ежедневный, генеральный, послеремонтный клининг. Работаем по договору, с НДС.';
+const breadcrumbs = [
+  { name: 'Главная', href: '/' },
+  { name: 'Услуги', href: '/#services' },
+  { name: 'Уборка офисов', href: '/business/uborka-ofisov/' }
+];
+
+const faqData = [
+  {
+    q: 'Сколько стоит уборка офиса?',
+    a: 'Цена зависит от площади, частоты визитов и перечня работ. Ориентир — от 45 ₽/м². Точную стоимость назовём после бесплатного осмотра объекта.'
+  },
+  {
+    q: 'Как быстро можете выйти на объект?',
+    a: 'Первый визит для осмотра и замеров — в течение 24 часов после заявки. Регулярная уборка начинается через 3 рабочих дня после подписания договора.'
+  },
+  {
+    q: 'Что входит в ежедневную уборку?',
+    a: 'Влажная уборка полов, протирка рабочих поверхностей и оргтехники, вынос мусора, уборка санузлов и кухни, протирка дверей и выключателей. Полный перечень — в разделе выше.'
+  },
+  {
+    q: 'Работаете ли в выходные и ночью?',
+    a: 'Да. График подстраиваем под режим работы вашего офиса. Если нужна уборка в 6 утра или в субботу — бригада выйдет в нужное время.'
+  },
+  {
+    q: 'Что если уборщик заболел?',
+    a: 'Замена из резервной бригады — в течение 2 часов. Уборка состоится по графику, без пропусков. Это зафиксировано в договоре.'
+  },
+  {
+    q: 'Нужен ли от нас инвентарь?',
+    a: 'Нет. Бригада приезжает со своей химией, оборудованием и расходниками. Вам не нужно покупать тряпки, моющие средства или пылесосы.'
+  },
+  {
+    q: 'Как контролировать качество?',
+    a: 'После каждой уборки вы получаете фотоотчёт и заполненный чек-лист в Telegram или на e-mail. Видно, что сделано, когда и кем.'
+  },
+  {
+    q: 'Можно ли попробовать перед заключением договора?',
+    a: 'Да. Пробная уборка доступна для объектов от 200 м². Вы оцените результат до подписания долгосрочного контракта.'
+  }
+];
 ---
 
-<BaseLayout title={title} description={description}>
-  <Header />
+<BusinessLayout
+  title="Уборка офисов в Москве от 45 ₽/м² — Намыто"
+  description="Ежедневная уборка офисов в Москве. Договор, фотоотчёт после каждой уборки, фиксированная цена. Бесплатный выезд за 24 часа."
+  ogTitle="Уборка офисов в Москве от 45 ₽/м² — Намыто"
+  ogDescription="Ежедневная уборка офисов в Москве. Договор, фотоотчёт после каждой уборки, фиксированная цена. Бесплатный выезд за 24 часа."
+>
+  <Breadcrumbs items={breadcrumbs} />
 
-  <main>
-    <section class="bg-gradient-to-br from-slate-900 to-slate-800 text-white pt-32 pb-20">
-      <div class="container mx-auto px-4">
-        <div class="flex gap-2 text-sm text-slate-400 mb-6">
-          <a href="/" class="text-teal-400 hover:underline">Главная</a>
-          <span>/</span>
-          <span>Уборка офисов</span>
+  <section class="sp-hero">
+    <div class="container">
+      <h1>Уборка офисов в Москве</h1>
+      <p class="sp-hero-intro">Регулярная уборка офисных помещений по договору с фиксированной ценой. Для компаний, которым нужна чистота без управления штатом уборщиков. От 45 ₽/м² при ежедневном обслуживании.</p>
+      <div class="sp-hero-bar">
+        <div class="sp-hero-bar-item"><div class="hb-label">Цена</div><div class="hb-value">От 45 ₽/м²</div></div>
+        <div class="sp-hero-bar-item"><div class="hb-label">Выезд</div><div class="hb-value">Бесплатный осмотр за 24 часа</div></div>
+        <div class="sp-hero-bar-item"><div class="hb-label">Договор</div><div class="hb-value">Фиксированная цена, оплата по акту</div></div>
+        <div class="sp-hero-bar-item"><div class="hb-label">Контроль</div><div class="hb-value">Фотоотчёт после каждой уборки</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sp-section sp-section--light">
+    <div class="container">
+      <div class="sp-prose">
+        <div class="sec-label">Состав услуги</div>
+        <h2>Что входит в ежедневную уборку офиса</h2>
+        <p>Перечень работ зависит от планировки и пожеланий. Ниже — стандартный набор для офиса с open-space, переговорными, кухней и санузлами. Всё фиксируется в приложении к договору.</p>
+      </div>
+      <div class="sp-zones">
+        <div class="sp-zone">
+          <h3>Рабочие зоны</h3>
+          <ul>
+            <li>Протирка столов, полок и подоконников</li>
+            <li>Удаление пыли с мониторов и оргтехники</li>
+            <li>Протирка спинок и подлокотников кресел</li>
+            <li>Вынос мусора, замена пакетов в корзинах</li>
+            <li>Влажная уборка пола (мытьё или протирка)</li>
+            <li>Протирка выключателей и дверных ручек</li>
+          </ul>
         </div>
+        <div class="sp-zone">
+          <h3>Переговорные</h3>
+          <ul>
+            <li>Протирка стола, стульев, полок</li>
+            <li>Очистка маркерных досок</li>
+            <li>Удаление пыли с экранов и проекторов</li>
+            <li>Проветривание, освежитель воздуха</li>
+            <li>Влажная уборка пола</li>
+            <li>Сбор мусора, замена пакетов</li>
+          </ul>
+        </div>
+        <div class="sp-zone">
+          <h3>Кухня и зона отдыха</h3>
+          <ul>
+            <li>Мытьё столешниц, столов, раковины</li>
+            <li>Протирка фасадов шкафов и микроволновки</li>
+            <li>Очистка наружных поверхностей холодильника</li>
+            <li>Мытьё пола, включая зону у кулера</li>
+            <li>Вынос мусора, замена пакетов</li>
+            <li>Проверка запаса воды, салфеток, мыла</li>
+          </ul>
+        </div>
+        <div class="sp-zone">
+          <h3>Санузлы</h3>
+          <ul>
+            <li>Мытьё и дезинфекция унитазов, писсуаров</li>
+            <li>Чистка раковин и зеркал</li>
+            <li>Наполнение диспенсеров: мыло, бумага, освежитель</li>
+            <li>Мытьё пола дезинфицирующим составом</li>
+            <li>Протирка дверей, перегородок, выключателей</li>
+            <li>Отчёт о неисправностях (течь, сломанный дозатор)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="sp-prose">
+        <div class="sp-zone" style="grid-column: span 2;">
+          <h3>Входная группа и коридоры</h3>
+          <ul>
+            <li>Влажная уборка пола, включая лестничные площадки</li>
+            <li>Протирка входных дверей и стеклянных перегородок</li>
+            <li>Протирка кнопок лифта и панелей домофона</li>
+            <li>Чистка или замена грязезащитных ковриков</li>
+            <li>Удаление следов обуви и грязи у входа</li>
+          </ul>
+        </div>
+        <p style="margin-top: 24px;">Перечень корректируется под ваш офис. Если нужна уборка серверной, шоурума или склада при офисе — включим в чек-лист отдельно.</p>
+      </div>
+    </div>
+  </section>
 
-        <h1 class="font-serif text-4xl md:text-5xl font-bold mb-5 max-w-2xl">
-          Ежедневная уборка офисов в Москве
-        </h1>
+  <section class="sp-section sp-section--dark">
+    <div class="container">
+      <div class="sp-prose">
+        <div class="sec-label">Стоимость</div>
+        <h2>Как формируется цена</h2>
+        <p>Итоговая стоимость зависит от трёх параметров: площадь помещения, частота уборки и объём работ. Чем больше площадь и чаще визиты — тем ниже ставка за квадратный метр.</p>
+        <p>Ниже — ориентировочные цены для типовых офисов в Москве. Уборка включает все зоны: рабочие места, кухню, санузлы, коридоры.</p>
+      </div>
+      <div class="sp-table-wrap">
+        <table class="sp-table">
+          <thead>
+            <tr><th>Площадь</th><th>Частота</th><th>Стоимость в месяц</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>100 м²</td><td>Ежедневно (5 дней/нед)</td><td>от 4 500 ₽</td></tr>
+            <tr><td>300 м²</td><td>3 раза в неделю</td><td>от 9 000 ₽</td></tr>
+            <tr><td>500 м²</td><td>Ежедневно (5 дней/нед)</td><td>от 18 000 ₽</td></tr>
+            <tr><td>1 000 м²</td><td>Ежедневно (5 дней/нед)</td><td>от 32 000 ₽</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="sp-prose">
+        <div class="sp-note">Точная цена — после бесплатного осмотра. Выезд менеджера в течение 24 часов. На осмотре замеряем площадь, считаем санузлы, фиксируем пожелания. Расчёт — в тот же день.</div>
+        <h3>Что влияет на цену</h3>
+        <p>Площадь — основной фактор. Но не единственный. На стоимость также влияют:</p>
+        <ul>
+          <li>Количество санузлов. Офис на 500 м² с двумя санузлами и с шестью — разная трудоёмкость.</li>
+          <li>Наличие кухни-столовой. Кухня на 20 человек требует отдельного внимания каждый день.</li>
+          <li>Тип напольного покрытия. Мрамор, паркет и ковролин убираются по-разному.</li>
+          <li>Высота потолков и остекление. Панорамные окна и потолки выше 4 метров — отдельные работы.</li>
+          <li>Время уборки. Ночные или ранние утренние смены (до 7:00) — наценка 15%.</li>
+        </ul>
+        <h3>Способ оплаты</h3>
+        <p>Безналичный расчёт с НДС. Оплата раз в месяц по акту выполненных работ. Цена фиксируется на срок договора и не меняется без согласования.</p>
+      </div>
+    </div>
+  </section>
 
-        <p class="text-lg text-slate-300 max-w-xl mb-10 leading-relaxed">
-          Комплексная уборка рабочих помещений. Утренняя подготовка к работе, дневное поддержание чистоты, вечерняя уборка после смены.
-        </p>
+  <section class="sp-section sp-section--off">
+    <div class="container">
+      <div class="sp-prose">
+        <div class="sec-label">Сравнение</div>
+        <h2>Чем отличается от штатного уборщика</h2>
+        <p>Штатный уборщик — это зарплата, налоги, инвентарь, больничные и контроль. Ниже — сравнение по ключевым параметрам.</p>
+      </div>
+      <div class="sp-compare">
+        <div class="sp-compare-col sp-compare-col--muted">
+          <h3>Штатный уборщик</h3>
+          <ul>
+            <li>Зарплата + налоги + отпускные = от 65 000 ₽/мес</li>
+            <li>Инвентарь и химию покупаете сами</li>
+            <li>Больничный = уборки нет, пока не вернётся</li>
+            <li>Отпуск = 28 дней без уборки или искать замену</li>
+            <li>Контроль качества — на вас</li>
+            <li>Отчётности нет</li>
+            <li>Увольнение = поиск, обучение, оформление заново</li>
+          </ul>
+        </div>
+        <div class="sp-compare-col sp-compare-col--accent">
+          <h3>Намыто</h3>
+          <ul>
+            <li>Фиксированная цена по договору, с НДС</li>
+            <li>Химия, оборудование, расходники — наши</li>
+            <li>Замена клинера за 2 часа из резервной бригады</li>
+            <li>Уборка без пропусков: 365 дней в году</li>
+            <li>Фотоотчёт + чек-лист после каждого визита</li>
+            <li>Персональный менеджер решает все вопросы</li>
+            <li>Не устроило — переделаем в тот же день</li>
+          </ul>
+        </div>
+      </div>
+      <div class="sp-prose">
+        <p>С точки зрения расходов аутсорсинг дешевле штатной единицы для офисов до 500 м². Для офисов крупнее — сопоставимо по цене, но снимает с вас управленческую нагрузку: подбор, обучение, замены, закупку химии, контроль.</p>
+      </div>
+    </div>
+  </section>
 
-        <div class="flex flex-wrap gap-12">
+  <section class="sp-section sp-section--dark">
+    <div class="container">
+      <div class="sp-prose">
+        <div class="sec-label">Процесс</div>
+        <h2>Как устроен процесс</h2>
+        <p>От заявки до первой уборки — 3 рабочих дня. Вот что происходит на каждом этапе.</p>
+      </div>
+      <div class="sp-steps">
+        <div class="sp-step">
           <div>
-            <div class="text-xs uppercase tracking-widest text-slate-400 mb-1">Стоимость</div>
-            <div class="text-2xl font-bold">от 40 ₽/м²</div>
+            <div class="sp-step-title">Заявка</div>
+            <p>Звонок, WhatsApp или форма на сайте. Укажите примерную площадь и тип помещения. Ответим в течение часа в рабочее время.</p>
           </div>
+        </div>
+        <div class="sp-step">
           <div>
-            <div class="text-xs uppercase tracking-widest text-slate-400 mb-1">График</div>
-            <div class="text-2xl font-bold">24/7</div>
+            <div class="sp-step-title">Осмотр</div>
+            <p>Менеджер приезжает на объект в течение 24 часов. Замеряет площадь, считает санузлы, фиксирует покрытия и особенности. Осмотр бесплатный. Расчёт — в тот же день.</p>
           </div>
+        </div>
+        <div class="sp-step">
           <div>
-            <div class="text-xs uppercase tracking-widest text-slate-400 mb-1">Договор</div>
-            <div class="text-2xl font-bold">с НДС</div>
+            <div class="sp-step-title">Договор</div>
+            <p>Фиксированная цена, график, перечень работ, ответственность сторон. Оплата по акту, безнал с НДС. Без скрытых доплат.</p>
+          </div>
+        </div>
+        <div class="sp-step">
+          <div>
+            <div class="sp-step-title">Уборка</div>
+            <p>Бригада работает по чек-листу. Своя химия и оборудование. Время визита — по вашему графику: утро, вечер, ночь или выходные.</p>
+          </div>
+        </div>
+        <div class="sp-step">
+          <div>
+            <div class="sp-step-title">Фотоотчёт</div>
+            <p>После каждой уборки — фотографии ключевых зон и заполненный чек-лист. Отправляем в Telegram или на e-mail сразу после завершения. Видно, что сделано и когда.</p>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="py-20 bg-slate-950">
-      <div class="container mx-auto px-4">
-        <h2 class="font-serif text-3xl md:text-4xl font-bold text-white mb-12">
-          Что входит в уборку офиса
-        </h2>
-        <div class="grid md:grid-cols-3 gap-8">
-          <div class="bg-white p-8 border border-slate-200">
-            <div class="text-3xl font-bold text-teal-500 mb-4 font-serif">01</div>
-            <h3 class="text-lg font-semibold text-slate-900 mb-3">Рабочие зоны</h3>
-            <p class="text-slate-600 text-sm leading-relaxed">
-              Протирка поверхностей, уборка мусора, мытьё полов, очистка мебели от пыли. Чистые столы — чистые мысли.
-            </p>
-          </div>
-          <div class="bg-white p-8 border border-slate-200">
-            <div class="text-3xl font-bold text-teal-500 mb-4 font-serif">02</div>
-            <h3 class="text-lg font-semibold text-slate-900 mb-3">Санузлы</h3>
-            <p class="text-slate-600 text-sm leading-relaxed">
-              Дезинфекция сантехники, чистка зеркал и кафеля, пополнение расходных материалов. Никаких разводов и запахов.
-            </p>
-          </div>
-          <div class="bg-white p-8 border border-slate-200">
-            <div class="text-3xl font-bold text-teal-500 mb-4 font-serif">03</div>
-            <h3 class="text-lg font-semibold text-slate-900 mb-3">Общие зоны</h3>
-            <p class="text-slate-600 text-sm leading-relaxed">
-              Приёмная, переговорные, кухня, коридоры. Моём посуду, протираем технику, выносим мусор.
-            </p>
-          </div>
+  <section class="sp-section sp-section--light">
+    <div class="container">
+      <div class="sp-prose">
+        <div class="sec-label">Вопросы</div>
+        <h2>Часто задаваемые вопросы</h2>
+      </div>
+      <div class="sp-prose">
+        <div class="sp-faq">
+          {faqData.map((item, i) => (
+            <details>
+              <summary>{item.q}</summary>
+              <div class="sp-faq-body">{item.a}</div>
+            </details>
+          ))}
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <CtaForm />
-  </main>
+  <section class="sp-section sp-section--dark">
+    <div class="container">
+      <div class="sp-prose">
+        <div class="sec-label">Подробнее</div>
+        <h2>Уборка офиса: на что обратить внимание</h2>
+        <h3>Почему регулярность важнее разовых генеральных уборок</h3>
+        <p>Офис загрязняется каждый день. Пыль оседает на мониторах, крошки копятся на кухне, на полу появляются следы обуви. Разовая генеральная уборка раз в месяц не решает эту проблему — она решает последствия. Ежедневное обслуживание поддерживает постоянный уровень чистоты. Офис выглядит одинаково в понедельник и в пятницу.</p>
+        <h3>Санузлы — индикатор уровня компании</h3>
+        <p>Для сотрудников и гостей чистота туалетных комнат — первый маркер отношения компании к деталям. Пустой дозатор мыла, разводы на зеркале или запах в санузле запоминаются. Ежедневная уборка санузлов с дезинфекцией и контролем расходников — обязательная часть нашего чек-листа. Каждый визит — проверка: мыло, бумага, освежитель, исправность оборудования.</p>
+        <h3>Кухня: где копится больше всего проблем</h3>
+        <p>Офисная кухня на 30 человек за неделю без уборки превращается в источник запахов и насекомых. Раковина с остатками еды, липкая столешница, забитый фильтр микроволновки — всё это влияет на атмосферу в офисе. Ежедневная уборка кухни включает мытьё всех поверхностей, протирку бытовой техники снаружи и проверку мусорных контейнеров.</p>
+        <h3>Влажная уборка пола vs сухая протирка</h3>
+        <p>В офисах с высокой проходимостью (от 50 человек) сухая протирка не справляется. Пыль просто перемещается с одного участка на другой. Влажная уборка с профессиональным моющим средством удаляет грязь, следы обуви и аллергены. Для ковролина используем экстракторную чистку — пылесос с моющим раствором, который вытягивает грязь из ворса.</p>
+        <h3>Уборка в нерабочее время</h3>
+        <p>Большинство офисов выбирают уборку рано утром (6:00–8:00) или вечером после ухода сотрудников. Бригада приходит, когда никого нет, и уходит до начала рабочего дня. Сотрудники приходят в чистый офис. Если у вас сменный график или круглосуточный колл-центр — подстроим расписание так, чтобы уборка не мешала работе.</p>
+        <h3>Сезонные особенности</h3>
+        <p>Осень и зима — грязь с улицы, реагенты, мокрые следы у входа. В эти месяцы входная группа требует внимания в 2–3 раза больше, чем летом. Грязезащитные коврики нужно чистить чаще, а пол в коридоре — мыть дважды за смену. Весной добавляется пыльца и тополиный пух, который забивается в фильтры кондиционеров и оседает на всех горизонтальных поверхностях. Всё это учтено в нашем графике: интенсивность уборки корректируется по сезону без доплат.</p>
+        <h3>Площадь и количество людей</h3>
+        <p>Офис на 300 м² с 15 сотрудниками и офис на 300 м² с 80 сотрудниками — разная нагрузка. Чем больше людей, тем быстрее загрязняются санузлы, кухня и зоны у входа. При расчёте цены учитываем не только метраж, но и плотность заполнения. Это позволяет точно определить, сколько клинеров нужно и сколько времени займёт уборка.</p>
+        <h3>Что делать с окнами</h3>
+        <p>Мытьё окон не входит в ежедневную уборку. Это отдельная услуга с периодичностью раз в 1–3 месяца, в зависимости от этажа и расположения здания. Для внутренних стеклянных перегородок — протирка включена в ежедневный чек-лист. Следы от пальцев на стеклянных дверях убираем каждый визит.</p>
+        <h3>Химия и экология</h3>
+        <p>Используем сертифицированные моющие средства без резкого запаха. Для офисов с аллергиками или требованиями к экологичности подбираем составы без хлора и агрессивных ПАВ. Средства хранятся у нас — вам не нужно выделять место в офисе.</p>
+        <h3>Отчётность для бухгалтерии</h3>
+        <p>Договор, ежемесячный акт выполненных работ, счёт-фактура. Все документы — в электронном виде через ЭДО или на бумаге с курьерской доставкой. Оплата безналичная, с НДС. Подходит для компаний на общей системе налогообложения и на упрощёнке.</p>
+      </div>
+    </div>
+  </section>
 
-  <Footer />
-  <WhatsApp />
-</BaseLayout>
+  <CtaForm />
+
+  <SchemaOrg type="Service" data={{
+    name: 'Уборка офисов в Москве',
+    provider: { '@type': 'LocalBusiness', name: 'Намыто', url: 'https://namyto.ru' },
+    areaServed: { '@type': 'City', name: 'Москва' },
+    description: 'Ежедневная уборка офисов в Москве. Договор, фотоотчёт, фиксированная цена.',
+    offers: { '@type': 'Offer', priceCurrency: 'RUB', price: '45', priceSpecification: { '@type': 'UnitPriceSpecification', price: '45', priceCurrency: 'RUB', unitText: 'м²' } }
+  }} />
+
+  <SchemaOrg type="FAQPage" data={{
+    mainEntity: faqData.map(item => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: { '@type': 'Answer', text: item.a }
+    }))
+  }} />
+
+  <style>
+    .sp-hero { padding: 120px 0 60px; background: var(--navy); }
+    .sp-hero h1 { font-family: var(--serif); font-size: clamp(32px, 4vw, 56px); color: var(--white); margin-bottom: 20px; }
+    .sp-hero-intro { font-size: 17px; color: var(--text); max-width: 720px; margin-bottom: 40px; line-height: 1.7; }
+    .sp-hero-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; border-top: 1px solid var(--border-l); padding-top: 28px; }
+    .sp-hero-bar-item .hb-label { font-size: 10px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--text-m); margin-bottom: 6px; }
+    .sp-hero-bar-item .hb-value { font-family: var(--serif); font-size: 16px; font-weight: 700; color: var(--white); }
+
+    .sp-section { padding: clamp(60px, 8vw, 100px) 0; }
+    .sp-section--light { background: var(--white); }
+    .sp-section--dark { background: var(--navy); }
+    .sp-section--off { background: var(--off); }
+
+    .sp-prose { max-width: 760px; }
+    .sp-section--light .sp-prose h2 { font-family: var(--serif); font-size: clamp(26px, 3vw, 40px); color: var(--navy); margin-bottom: 20px; }
+    .sp-section--dark .sp-prose h2 { font-family: var(--serif); font-size: clamp(26px, 3vw, 40px); color: var(--white); margin-bottom: 20px; }
+    .sp-section--off .sp-prose h2 { font-family: var(--serif); font-size: clamp(26px, 3vw, 40px); color: var(--navy); margin-bottom: 20px; }
+    .sp-prose h3 { font-family: var(--serif); font-size: 20px; color: inherit; margin: 32px 0 12px; }
+    .sp-section--light .sp-prose p { font-size: 15px; color: var(--text-dm); line-height: 1.75; margin-bottom: 16px; }
+    .sp-section--dark .sp-prose p { font-size: 15px; color: var(--text); line-height: 1.75; margin-bottom: 16px; }
+    .sp-section--off .sp-prose p { font-size: 15px; color: var(--text-dm); line-height: 1.75; margin-bottom: 16px; }
+    .sp-prose ul { margin: 16px 0; padding-left: 20px; }
+    .sp-section--light .sp-prose li { font-size: 15px; color: var(--text-dm); margin-bottom: 8px; }
+    .sp-section--dark .sp-prose li { font-size: 15px; color: var(--text); margin-bottom: 8px; }
+    .sp-section--off .sp-prose li { font-size: 15px; color: var(--text-dm); margin-bottom: 8px; }
+
+    .sp-zones { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin: 40px 0; }
+    .sp-zone { background: var(--off); padding: 24px; }
+    .sp-section--dark .sp-zone { background: var(--navy-2); }
+    .sp-zone h3 { font-family: var(--serif); font-size: 18px; color: var(--navy); margin-bottom: 16px; }
+    .sp-section--dark .sp-zone h3 { color: var(--white); }
+    .sp-zone ul { list-style: none; padding: 0; margin: 0; }
+    .sp-zone li { font-size: 14px; color: var(--text-dm); padding: 6px 0; padding-left: 16px; position: relative; }
+    .sp-section--dark .sp-zone li { color: var(--text-m); }
+    .sp-zone li::before { content: ''; position: absolute; left: 0; top: 14px; width: 5px; height: 5px; background: var(--teal); border-radius: 50%; }
+
+    .sp-table-wrap { margin: 40px 0; overflow-x: auto; }
+    .sp-table { width: 100%; border-collapse: collapse; }
+    .sp-table th { text-align: left; padding: 14px 16px; font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--text-m); border-bottom: 1px solid var(--border-l); background: var(--navy-2); }
+    .sp-table td { padding: 16px; font-size: 15px; color: var(--text); border-bottom: 1px solid var(--border-l); }
+    .sp-table tr:hover td { background: var(--navy-2); }
+
+    .sp-note { background: var(--navy-2); padding: 20px 24px; border-left: 3px solid var(--teal); margin: 32px 0; font-size: 15px; color: var(--text); }
+
+    .sp-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 40px 0; }
+    .sp-compare-col { padding: 28px; }
+    .sp-compare-col--muted { background: var(--off); }
+    .sp-compare-col--accent { background: var(--navy-2); border: 1px solid var(--teal); }
+    .sp-compare-col h3 { font-family: var(--serif); font-size: 20px; margin-bottom: 20px; }
+    .sp-compare-col--muted h3 { color: var(--navy); }
+    .sp-compare-col--accent h3 { color: var(--teal); }
+    .sp-compare-col ul { list-style: none; padding: 0; margin: 0; }
+    .sp-compare-col li { font-size: 14px; padding: 8px 0; padding-left: 20px; position: relative; }
+    .sp-compare-col--muted li { color: var(--text-dm); }
+    .sp-compare-col--accent li { color: var(--text); }
+    .sp-compare-col li::before { content: '—'; position: absolute; left: 0; top: 7px; color: var(--teal); }
+
+    .sp-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; margin: 40px 0; }
+    .sp-step { padding: 24px; background: var(--navy-2); border-top: 2px solid var(--teal); }
+    .sp-step-title { font-family: var(--serif); font-size: 18px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+    .sp-step p { font-size: 13px; color: var(--text-m); line-height: 1.6; }
+
+    .sp-faq { margin-top: 24px; }
+    .sp-faq details { border-bottom: 1px solid var(--border-d); }
+    .sp-faq summary { font-size: 16px; font-weight: 600; color: var(--navy); padding: 20px 0; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+    .sp-faq summary::after { content: '+'; font-size: 20px; color: var(--teal); }
+    .sp-faq details[open] summary::after { content: '—'; }
+    .sp-faq-body { padding: 0 0 20px; font-size: 15px; color: var(--text-dm); line-height: 1.7; }
+
+    @media (max-width: 960px) {
+      .sp-hero-bar { grid-template-columns: repeat(2, 1fr); }
+      .sp-zones { grid-template-columns: 1fr; }
+      .sp-compare { grid-template-columns: 1fr; }
+      .sp-steps { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .sp-hero-bar { grid-template-columns: 1fr; }
+      .sp-steps { grid-template-columns: 1fr; }
+      .sp-compare-col { padding: 20px; }
+    }
+  </style>
+</BusinessLayout>

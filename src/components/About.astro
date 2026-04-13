@@ -1,0 +1,60 @@
+<section class="about">
+<div class="container">
+  <div class="about-grid">
+    <div class="about-photo"><img src="https://plus.unsplash.com/premium_photo-1681487144031-d502ea9abefc?fm=jpg&q=80&w=800&auto=format&fit=crop" alt="Современный офисный интерьер" loading="lazy" /></div>
+    <div class="f">
+      <div class="sec-label">Подход</div>
+      <h2>Обслуживание, а не разовые вызовы</h2>
+      <p>Мы работаем по долгосрочным контрактам с регулярным графиком. Каждый объект ведёт персональный менеджер — он знает помещение, бригаду и ваши требования. Вы не объясняете задачу каждый раз заново.</p>
+      <ul class="about-list">
+        <li class="about-item"><span class="about-dot"></span>Персональный менеджер, который знает ваш объект</li>
+        <li class="about-item"><span class="about-dot"></span>Постоянная бригада — одни и те же люди на вашем объекте</li>
+        <li class="about-item"><span class="about-dot"></span>Своя химия и оборудование — ничего от вас не нужно</li>
+        <li class="about-item"><span class="about-dot"></span>Работаем в нерабочее время — не мешаем вашим сотрудникам</li>
+        <li class="about-item"><span class="about-dot"></span>Первая уборка — пробная, с правом отказа</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</section>
+
+<style>
+.about {
+  background: var(--white);
+  padding: clamp(80px, 10vw, 140px) 0;
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 100px);
+  align-items: center;
+}
+.about-photo { min-height: 420px; overflow: hidden; }
+.about-photo img { width: 100%; height: 100%; object-fit: cover; }
+.about h2 {
+  font-family: var(--serif);
+  font-size: clamp(26px, 3vw, 40px);
+  font-weight: 700; line-height: 1.15;
+  letter-spacing: -.015em; color: var(--navy);
+  margin-bottom: 20px; text-wrap: balance;
+}
+.about p {
+  font-size: 16px; line-height: 1.8;
+  color: var(--text-dm); margin-bottom: 28px;
+}
+.about-list { list-style: none; border-top: 1px solid var(--border-d); }
+.about-item {
+  padding: 14px 0; border-bottom: 1px solid var(--border-d);
+  font-size: 15px; font-weight: 500; color: var(--navy);
+  display: flex; align-items: center; gap: 14px;
+}
+.about-dot {
+  width: 6px; height: 6px; background: var(--teal);
+  border-radius: 50%; flex-shrink: 0;
+}
+
+@media (max-width: 960px) {
+  .about-grid { grid-template-columns: 1fr; }
+  .about-photo { min-height: 280px; }
+}
+</style>

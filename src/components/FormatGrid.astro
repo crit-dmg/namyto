@@ -1,0 +1,62 @@
+<section class="format">
+<div class="container">
+  <div class="format-hd f">
+    <div class="sec-label">Формат работы</div>
+    <h2>Что вы получаете после каждой уборки</h2>
+  </div>
+  <div class="format-grid">
+    <div class="format-card f"><div class="format-num">01</div><h3>Фотоотчёт</h3><p>Фото всех убранных зон — в Telegram или email сразу после завершения. Видите результат, даже если вас нет на объекте.</p></div>
+    <div class="format-card f"><div class="format-num">02</div><h3>Чек-лист</h3><p>Список выполненных работ с отметками. Если что-то пропущено — видно сразу. Подписывается старшим бригады.</p></div>
+    <div class="format-card f"><div class="format-num">03</div><h3>Документы</h3><p>Акт выполненных работ и счёт-фактура с НДС — ежемесячно. Отправляем бухгалтерии без напоминаний.</p></div>
+  </div>
+</div>
+</section>
+
+<style>
+.format {
+  background: var(--navy-2);
+  padding: clamp(80px, 10vw, 140px) 0;
+}
+.format-hd {
+  max-width: 480px;
+  margin-bottom: clamp(48px, 6vw, 72px);
+}
+.format-hd h2 {
+  font-family: var(--serif);
+  font-size: clamp(26px, 3vw, 40px);
+  font-weight: 700; color: var(--white);
+  letter-spacing: -.015em;
+}
+.format-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.2fr;
+  border-top: 1px solid var(--border-l);
+  border-left: 1px solid var(--border-l);
+}
+.format-card {
+  padding: clamp(28px, 3.5vw, 44px);
+  border-right: 1px solid var(--border-l);
+  border-bottom: 1px solid var(--border-l);
+  transition: background .3s;
+}
+.format-card:hover { background: var(--navy-3); }
+.format-num {
+  font-size: 12px; font-weight: 700;
+  color: var(--teal); line-height: 1;
+  margin-bottom: 16px;
+  letter-spacing: .1em;
+}
+.format-card h3 {
+  font-family: var(--serif);
+  font-size: 18px; font-weight: 700;
+  color: var(--white); margin-bottom: 10px;
+}
+.format-card p { font-size: 14px; color: var(--text-m); line-height: 1.7; }
+
+@media (max-width: 960px) {
+  .format-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .format-grid { grid-template-columns: 1fr; }
+}
+</style>
