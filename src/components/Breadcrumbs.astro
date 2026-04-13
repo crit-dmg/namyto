@@ -7,7 +7,8 @@ const { items } = Astro.props;
 ---
 
 <nav class="breadcrumbs" aria-label="Breadcrumb">
-  <ol class="breadcrumbs__list">
+  <div class="container">
+    <ol class="breadcrumbs__list">
     {items.map((item, index) => (
       <li class="breadcrumbs__item">
         {index === items.length - 1 ? (
@@ -21,11 +22,12 @@ const { items } = Astro.props;
       </li>
     ))}
   </ol>
+  </div>
 </nav>
 
 <style>
   .breadcrumbs {
-    padding: 1.5rem 0;
+    padding: 100px 0 1.5rem;
     font-size: 0.875rem;
   }
 
@@ -52,17 +54,17 @@ const { items } = Astro.props;
   }
 
   .breadcrumbs__link:hover {
-    color: var(--navy);
+    color: var(--white);
     text-decoration: underline;
   }
 
   .breadcrumbs__current {
-    color: var(--text-muted);
+    color: var(--text-m);
     font-weight: 500;
   }
 
   .breadcrumbs__separator {
-    color: var(--text-muted);
+    color: var(--text-m);
     opacity: 0.5;
   }
 </style>
