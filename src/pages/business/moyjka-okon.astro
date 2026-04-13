@@ -1,0 +1,354 @@
+---
+import BusinessLayout from '../../layouts/BusinessLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CtaForm from '../../components/CtaForm.astro';
+import SchemaOrg from '../../components/SchemaOrg.astro';
+
+const breadcrumbItems = [
+  { name: 'Главная', href: '/' },
+  { name: 'Услуги', href: '/business/' },
+  { name: 'Мытьё окон', href: '/business/moyjka-okon/' }
+];
+
+const faqData = [
+  { q: 'Как часто нужно мыть окна в офисе?', a: 'В офисных помещениях — раз в 1-2 месяца. Для витрин магазинов — еженедельно или раз в 2 недели. Фасадное остекление — раз в квартал или по необходимости.' },
+  { q: 'Моете ли окна зимой?', a: 'Да, работаем круглый год. Зимой используем специальные средства с антиобледенителями. Температурный режим: от -10°C до +35°C.' },
+  { q: 'Нужно ли открывать окна при мойке?', a: 'Нет, мы моем снаружи и изнутри отдельно. Для наружной мойки высотных зданий используем промышленный альпинизм или телескопические штанги.' },
+  { q: 'Что входит в стоимость?', a: 'Мойка стекол, рам, подоконников, отливов, москитных сеток. Химия и оборудование — наши. Выезд в пределах МКАД — бесплатно.' },
+  { q: 'Как быстро приедете?', a: 'Обычно на следующий день после заявки. Срочный выезд в день обращается — с доплатой 30%.' },
+  { q: 'Работаете ли в выходные?', a: 'Да, работаем без выходных с 7:00 до 22:00. Для офисов рекомендуем вечернее или утреннее время, чтобы не мешать сотрудникам.' },
+  { q: 'Есть ли гарантия на работу?', a: 'Да, 48 часов. Если заметите разводы или пропущенные участки — приедем и исправим бесплатно. Фотоотчет перед сдачей объекта.' },
+  { q: 'Моете ли витрины в ТЦ и на первых этажах?', a: 'Да, у нас есть опыт работы в торговых центрах, бизнес-центрах, магазинах. Работаем по ночам или в нерабочие часы торговых точек.' }
+];
+---
+
+<BusinessLayout
+  title="Мытьё окон в офисе Москва | Профессиональная мойка витрин и фасадов"
+  description="Профессиональная мойка окон в офисах Москвы. Витрины, фасадное остекление, высотные работы. Цены от 60 ₽/м². Промышленный альпинизм. Договор, фотоотчёт."
+  keywords="мойка окон офис, мойка витрин москва, мойка фасадного остекления, промышленный альпинизм, мойка окон на высоте, регулярная мойка окон"
+>
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <section class="sp-hero">
+    <div class="container">
+      <h1>Мытьё окон в офисе Москва</h1>
+      <p class="sp-hero-intro">Профессиональная мойка окон, витрин и фасадного остекления. Промышленные альпинисты для высотных зданий. Регулярное обслуживание или разовый выезд.</p>
+      <div class="sp-hero-bar">
+        <div class="sp-hero-bar-item">
+          <div class="hb-label">Цена</div>
+          <div class="hb-value">от 60 ₽/м²</div>
+        </div>
+        <div class="sp-hero-bar-item">
+          <div class="hb-label">Время</div>
+          <div class="hb-value">1-3 часа</div>
+        </div>
+        <div class="sp-hero-bar-item">
+          <div class="hb-label">Высота</div>
+          <div class="hb-value">до 25 этажа</div>
+        </div>
+        <div class="sp-hero-bar-item">
+          <div class="hb-label">Гарантия</div>
+          <div class="hb-value">48 часов</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sp-section sp-section--off">
+    <div class="container">
+      <div class="sp-prose">
+        <div class="sec-label">Состав</div>
+        <h2>Что входит в мойку окон</h2>
+        <p>Комплексная очистка всех элементов оконной конструкции профессиональными средствами.</p>
+      </div>
+      <div class="sp-zones">
+        <div class="sp-zone">
+          <h3>Стекла</h3>
+          <ul>
+            <li>Мойка с двух сторон</li>
+            <li>Удаление следов от пальцев</li>
+            <li>Очистка от пыли и грязи</li>
+            <li>Удаление следов от наклеек</li>
+            <li>Обезжиривание (кухни, производства)</li>
+          </ul>
+        </div>
+        <div class="sp-zone">
+          <h3>Рамы и подоконники</h3>
+          <ul>
+            <li>Протирка рам изнутри</li>
+            <li>Очистка подоконников</li>
+            <li>Удаление пыли с откосов</li>
+            <li>Мойка отливов снаружи</li>
+            <li>Обработка фурнитуры</li>
+          </ul>
+        </div>
+        <div class="sp-zone">
+          <h3>Дополнительно</h3>
+          <ul>
+            <li>Москитные сетки</li>
+            <li>Жалюзи и рулонные шторы</li>
+            <li>Витрины и витражи</li>
+            <li>Фасадное остекление</li>
+            <li>Зимние сады</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sp-section sp-section--dark">
+    <div class="container">
+      <div class="sp-prose">
+        <div class="sec-label">Цены</div>
+        <h2>Стоимость мойки окон</h2>
+        <p>Фиксированные цены без скрытых доплат. Итоговая стоимость зависит от этажности, типа остекления и сложности доступа.</p>
+      </div>
+      <div class="sp-table-wrap">
+        <table class="sp-table">
+          <thead>
+            <tr><th>Тип работ</th><th>Цена</th><th>Примерное время</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Обычное окно (от 1 м²)</td><td>от 60 ₽/м²</td><td>5-10 минут</td></tr>
+            <tr><td>Витражное остекление внутри</td><td>80 ₽/м²</td><td>по площади</td></tr>
+            <tr><td>Витраж снаружи (1-3 этаж)</td><td>100 ₽/м²</td><td>по площади</td></tr>
+            <tr><td>Высотная мойка (4+ этаж)</td><td>от 150 ₽/м²</td><td>по площади</td></tr>
+            <tr><td>Витрина магазина (внутри+снаружи)</td><td>от 120 ₽/м²</td><td>30-60 минут</td></tr>
+            <tr><td>Москитная сетка</td><td>50 ₽/шт</td><td>2-3 минуты</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="sp-note">Точную цену назовём после осмотра или по фото. Выезд менеджера для оценки — бесплатно.</div>
+    </div>
+  </section>
+
+  <section class="sp-section sp-section--off">
+    <div class="container">
+      <div class="sp-prose">
+        <div class="sec-label">Типы объектов</div>
+        <h2>Какие окна моем</h2>
+        <p>Работаем с любыми типами остекления — от стандартных офисных окон до сложных архитектурных конструкций.</p>
+      </div>
+      <div class="sp-zones" style="grid-template-columns: repeat(4, 1fr);">
+        <div class="sp-zone">
+          <h3>Офисы</h3>
+          <ul>
+            <li>Пластиковые окна</li>
+            <li>Алюминиевые профили</li>
+            <li>Перегородки из стекла</li>
+            <li>Окна в переговорных</li>
+          </ul>
+        </div>
+        <div class="sp-zone">
+          <h3>Магазины</h3>
+          <ul>
+            <li>Витрины первого этажа</li>
+            <li>Входные группы</li>
+            <li>Двери из стекла</li>
+            <li>Внутренние витражи</li>
+          </ul>
+        </div>
+        <div class="sp-zone">
+          <h3>Бизнес-центры</h3>
+          <ul>
+            <li>Фасадное остекление</li>
+            <li>Атриумы и холлы</li>
+            <li>Панорамные окна</li>
+            <li>Зеркальные фасады</li>
+          </ul>
+        </div>
+        <div class="sp-zone">
+          <h3>Сложные объекты</h3>
+          <ul>
+            <li>Высотные здания</li>
+            <li>Зимние сады</li>
+            <li>Стеклянные крыши</li>
+            <li>Купола и арки</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sp-section sp-section--light">
+    <div class="container">
+      <div class="sp-prose">
+        <div class="sec-label">Процесс</div>
+        <h2>Как проходит мойка окон</h2>
+        <p>От заявки до чистых стёкол — чёткий регламент с фотоотчётом.</p>
+      </div>
+      <div class="sp-steps">
+        <div class="sp-step">
+          <div>
+            <div class="sp-step-title">Заявка</div>
+            <p>Звонок или WhatsApp. Укажите адрес, количество окон, этаж. Ответим в течение часа.</p>
+          </div>
+        </div>
+        <div class="sp-step">
+          <div>
+            <div class="sp-step-title">Оценка</div>
+            <p>Менеджер выезжает для оценки объёма. Для высотных работ — проверка доступа к фасаду.</p>
+          </div>
+        </div>
+        <div class="sp-step">
+          <div>
+            <div class="sp-step-title">Договор</div>
+            <p>Фиксируем перечень работ, стоимость, сроки. Для регулярной мойки — скидка 15%.</p>
+          </div>
+        </div>
+        <div class="sp-step">
+          <div>
+            <div class="sp-step-title">Мойка</div>
+            <p>Бригада работает по чек-листу. Профессиональная химия, мягкие тряпки, скребки.</p>
+          </div>
+        </div>
+        <div class="sp-step">
+          <div>
+            <div class="sp-step-title">Приёмка</div>
+            <p>Фотоотчёт всех стёкол. Вы проверяете результат. Оплата по факту выполнения.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sp-section sp-section--dark">
+    <div class="container">
+      <div class="sp-prose">
+        <div class="sec-label">Вопросы</div>
+        <h2>Часто задаваемые вопросы</h2>
+      </div>
+      <div class="sp-prose">
+        <div class="sp-faq">
+          {faqData.map((item, i) => (
+            <details>
+              <summary>{item.q}</summary>
+              <div class="sp-faq-body">{item.a}</div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sp-section sp-section--light">
+    <div class="container">
+      <div class="sp-prose">
+        <div class="sec-label">Подробнее</div>
+        <h2>Мытьё окон в офисе: важные детали</h2>
+
+        <h3>Почему грязные окна — это проблема</h3>
+        <p>Запылённые окна пропускают на 30-40% меньше естественного света. Сотрудники устают быстрее, ухудшается настроение и продуктивность. Для клиентов грязные витрины — первый сигнал о небрежном отношении компании к деталям. Регулярная мойка окон — инвестиция в имидж и здоровье команды.</p>
+
+        <h3>Мойка витрин магазинов</h3>
+        <p>Витрины — лицо магазина. Грязное стекло отпугивает покупателей ещё до входа. Для магазинов на первых этажах рекомендуем мойку раз в неделю или две. В зимний период — чаще из-за грязи и реагентов с улиц. Работаем в утренние часы до открытия или вечером после закрытия.</p>
+
+        <h3>Высотная мойка окон</h3>
+        <p>Для зданий выше 3 этажей используем промышленный альпинизм или автовышки. Все альпинисты имеют допуски и страховку. Работаем с фасадным остеклением бизнес-центров, стеклянными крышами атриумов, панорамными окнами. Стоимость выше, но безопасность и качество гарантированы.</p>
+
+        <h3>Регулярная vs разовая мойка</h3>
+        <p>Разовая мойка — для подготовки к мероприятию, после ремонта, перед важной встречей. Регулярная — поддержание постоянной чистоты. При ежемесячной мойке окон в офисе предоставляем скидку 15%. Для витрин магазинов — специальные условия на еженедельное обслуживание.</p>
+
+        <h3>Зимняя мойка окон</h3>
+        <p>Зимой окна пачкаются быстрее из-за реагентов и грязи с дорог. Моем круглый год, используя специальные средства с антиобледенителями. При температуре ниже -10°C работы могут быть отложены по соображениям безопасности. В таких случаях переносим дату без потери предоплаты.</p>
+
+        <h3>Как сократить расходы на мойку</h3>
+        <p>Заключите договор на регулярное обслуживание — скидка до 15%. Мойте окна весной и осенью вместо ежемесячной мойки (для офисов без витрин). Совместите мойку окон с генеральной уборкой — доставка оборудования одна, экономия на транспортных расходах.</p>
+      </div>
+    </div>
+  </section>
+
+  <CtaForm />
+
+  <SchemaOrg type="Service" data={{
+    name: 'Мытьё окон в офисе Москва',
+    provider: { '@type': 'LocalBusiness', name: 'Намыто', url: 'https://namyto.ru' },
+    areaServed: { '@type': 'City', name: 'Москва' },
+    description: 'Профессиональная мойка окон, витрин и фасадного остекления в офисах Москвы. Промышленный альпинизм.',
+    offers: { '@type': 'Offer', priceCurrency: 'RUB', price: '60', priceSpecification: { '@type': 'UnitPriceSpecification', price: '60', priceCurrency: 'RUB', 'unitText': 'м²' } }
+  }} />
+
+  <SchemaOrg type="FAQPage" data={{
+    mainEntity: faqData.map(item => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: { '@type': 'Answer', text: item.a }
+    }))
+  }} />
+
+  <style>
+    .sp-hero { padding: 120px 0 60px; background: var(--navy); }
+    .sp-hero h1 { font-family: var(--serif); font-size: clamp(32px, 4vw, 56px); color: var(--white); margin-bottom: 20px; }
+    .sp-hero-intro { font-size: 17px; color: var(--text); max-width: 720px; margin-bottom: 40px; line-height: 1.7; }
+    .sp-hero-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; border-top: 1px solid var(--border-l); padding-top: 28px; }
+    .sp-hero-bar-item .hb-label { font-size: 10px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--text-m); margin-bottom: 6px; }
+    .sp-hero-bar-item .hb-value { font-family: var(--serif); font-size: 16px; font-weight: 700; color: var(--white); }
+
+    .sp-section { padding: clamp(60px, 8vw, 100px) 0; }
+    .sp-section--light { background: var(--white); }
+    .sp-section--dark { background: var(--navy); }
+    .sp-section--off { background: var(--off); }
+
+    .sp-prose { max-width: 760px; }
+    .sp-section--light .sp-prose h2 { font-family: var(--serif); font-size: clamp(26px, 3vw, 40px); color: var(--navy); margin-bottom: 20px; }
+    .sp-section--dark .sp-prose h2 { font-family: var(--serif); font-size: clamp(26px, 3vw, 40px); color: var(--white); margin-bottom: 20px; }
+    .sp-section--off .sp-prose h2 { font-family: var(--serif); font-size: clamp(26px, 3vw, 40px); color: var(--navy); margin-bottom: 20px; }
+    .sp-prose h3 { font-family: var(--serif); font-size: 20px; color: var(--navy); margin: 32px 0 12px 0; }
+    .sp-section--dark .sp-prose h3 { color: var(--white); }
+    .sp-prose h3:first-of-type { margin-top: 0; }
+    .sp-section--light .sp-prose p { font-size: 15px; color: var(--text-dm); line-height: 1.7; margin: 0 0 20px 0; }
+    .sp-section--dark .sp-prose p { font-size: 15px; color: var(--text); line-height: 1.7; margin: 0 0 20px 0; }
+    .sp-section--off .sp-prose p { font-size: 15px; color: var(--text-dm); line-height: 1.7; margin: 0 0 20px 0; }
+    .sp-prose p:last-child { margin-bottom: 0; }
+
+    .sp-zones { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 40px 0; }
+    .sp-zone { background: var(--off); padding: 24px; }
+    .sp-section--dark .sp-zone { background: var(--navy-2); }
+    .sp-zone h3 { font-family: var(--serif); font-size: 18px; color: var(--navy); margin-bottom: 16px; }
+    .sp-section--dark .sp-zone h3 { color: var(--white); }
+    .sp-zone ul { list-style: none; padding: 0; margin: 0; }
+    .sp-zone li { font-size: 14px; color: var(--text-dm); padding: 6px 0; padding-left: 16px; position: relative; }
+    .sp-section--dark .sp-zone li { color: var(--text-m); }
+    .sp-zone li::before { content: ''; position: absolute; left: 0; top: 14px; width: 5px; height: 5px; background: var(--teal); border-radius: 50%; }
+
+    .sp-table-wrap { margin: 40px 0; overflow-x: auto; }
+    .sp-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+    .sp-section--light .sp-table th,
+    .sp-section--dark .sp-table th { text-align: left; padding: 14px 16px; font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--text-dm); border-bottom: 1px solid var(--border-d); background: var(--off); vertical-align: middle; }
+    .sp-section--light .sp-table td,
+    .sp-section--dark .sp-table td { text-align: left; padding: 14px 16px; font-size: 15px; color: var(--text-dm); border-bottom: 1px solid var(--border-d); background: var(--white); vertical-align: middle; }
+    .sp-section--light .sp-table tr:hover td,
+    .sp-section--dark .sp-table tr:hover td { background: var(--off); }
+    .sp-table th:nth-child(1),
+    .sp-table td:nth-child(1) { width: 40%; }
+    .sp-table th:nth-child(2),
+    .sp-table td:nth-child(2) { width: 25%; }
+    .sp-table th:nth-child(3),
+    .sp-table td:nth-child(3) { width: 35%; }
+
+    .sp-note { background: var(--navy-2); padding: 20px 24px; border-left: 3px solid var(--teal); margin: 32px 0; font-size: 15px; color: var(--text); }
+
+    .sp-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; margin: 40px 0; }
+    .sp-step { padding: 24px; background: var(--navy-2); border-top: 2px solid var(--teal); }
+    .sp-step-title { font-family: var(--serif); font-size: 18px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+    .sp-step p { font-size: 13px; color: var(--text-m); line-height: 1.6; }
+
+    .sp-faq { margin-top: 24px; }
+    .sp-faq details { border-bottom: 1px solid var(--border-d); }
+    .sp-faq summary { font-size: 16px; font-weight: 600; color: var(--navy); padding: 20px 0; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+    .sp-faq summary::after { content: '+'; font-size: 20px; color: var(--teal); }
+    .sp-faq details[open] summary::after { content: '—'; }
+    .sp-faq-body { padding: 0 0 20px; font-size: 15px; color: var(--text-dm); line-height: 1.7; }
+
+    @media (max-width: 960px) {
+      .sp-hero-bar { grid-template-columns: repeat(2, 1fr); }
+      .sp-zones { grid-template-columns: 1fr 1fr; }
+      .sp-steps { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .sp-hero-bar { grid-template-columns: 1fr; }
+      .sp-zones { grid-template-columns: 1fr; }
+      .sp-steps { grid-template-columns: 1fr; }
+    }
+  </style>
+</BusinessLayout>
