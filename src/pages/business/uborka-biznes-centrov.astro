@@ -1,73 +1,33 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import Header from '../../components/Header.astro';
-import CtaForm from '../../components/CtaForm.astro';
-import Footer from '../../components/Footer.astro';
-import WhatsApp from '../../components/WhatsApp.astro';
+import BusinessLayout from '../../layouts/BusinessLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 
-const title = 'Уборка бизнес-центров Москва — от 45 ₽/м²';
-const description = 'Комплексная уборка бизнес-центров в Москве. Ежедневный клининг, уборка МОП, вывоз мусора.';
+const breadcrumbItems = [
+  { name: 'Главная', href: '/' },
+  { name: 'Услуги', href: '/business/' },
+  { name: 'Уборка бизнес-центров', href: '/business/uborka-biznes-centrov/' }
+];
 ---
 
-<BaseLayout title={title} description={description}>
-  <Header />
+<BusinessLayout
+  title="Уборка бизнес-центров | Намыто"
+  description="Профессиональная уборка бизнес-центров и офисных зданий в Москве."
+>
+  <Breadcrumbs items={breadcrumbItems} />
 
-  <main>
-    <section class="s-hero">
-      <div class="container">
-        <div class="breadcrumbs">
-          <a href="/">Главная</a>
-          <span>/</span>
-          <span>Бизнес-центры</span>
-        </div>
+  <section class="sp-hero">
+    <div class="container">
+      <h1>Уборка бизнес-центров</h1>
+      <p class="sp-hero-intro">Раздел в разработке. Скоро здесь появится подробная информация об услугах.</p>
+      <a href="/business/" class="btn-primary">Вернуться к услугам</a>
+    </div>
+  </section>
 
-        <h1>Уборка бизнес-центров</h1>
-
-        <p>Комплексное обслуживание БЦ и торговых центров. Уборка МОП, лестниц, лифтов, паркинга. Работаем круглосуточно.</p>
-
-        <div class="hero-stats">
-          <div class="stat-item">
-            <div class="stat-label">Стоимость</div>
-            <div class="stat-value">от 45 ₽/м²</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-label">График</div>
-            <div class="stat-value">24/7</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-label">Бригада</div>
-            <div class="stat-value">от 3 чел</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="s-section bg-alt">
-      <div class="container">
-        <h2>Что входит в уборку БЦ</h2>
-        <div class="grid-3">
-          <div class="info-card">
-            <div class="ic-num">01</div>
-            <h3>МОП</h3>
-            <p>Уборка мест общего пользования: коридоры, лестницы, лифты, холлы. Ежедневная поддержание чистоты.</p>
-          </div>
-          <div class="info-card">
-            <div class="ic-num">02</div>
-            <h3>Санузлы</h3>
-            <p>Чистка сантехники, дезинфекция, пополнение расходников. Работаем по ночам без мешать арендаторам.</p>
-          </div>
-          <div class="info-card">
-            <div class="ic-num">03</div>
-            <h3>Паркинг</h3>
-            <p>Уборка подземного паркинга: мойка полов, вывоз мусора, чистка колёсных барьеров.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <CtaForm />
-  </main>
-
-  <Footer />
-  <WhatsApp />
-</BaseLayout>
+  <style>
+    .sp-hero { padding: 160px 0 100px; background: var(--navy); text-align: center; }
+    .sp-hero h1 { font-family: var(--serif); font-size: clamp(32px, 4vw, 56px); color: var(--white); margin-bottom: 20px; }
+    .sp-hero-intro { font-size: 17px; color: var(--text); max-width: 600px; margin: 0 auto 40px; line-height: 1.7; }
+    .btn-primary { display: inline-block; background: var(--teal); color: var(--white); padding: 14px 32px; border-radius: 4px; font-size: 14px; font-weight: 600; text-decoration: none; transition: background .3s; }
+    .btn-primary:hover { background: var(--teal-2); }
+  </style>
+</BusinessLayout>
