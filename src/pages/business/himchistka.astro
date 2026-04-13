@@ -1,73 +1,384 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import Header from '../../components/Header.astro';
+import BusinessLayout from '../../layouts/BusinessLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import CtaForm from '../../components/CtaForm.astro';
-import Footer from '../../components/Footer.astro';
-import WhatsApp from '../../components/WhatsApp.astro';
+import SchemaOrg from '../../components/SchemaOrg.astro';
 
-const title = 'Химчистка ковролина в офисе Москва от 90 ₽/м²';
-const description = 'Химчистка ковровых покрытий и мягкой мебели в офисах Москвы. Экстракторная чистка с выездом на объект.';
+const breadcrumbs = [
+  { name: 'Главная', href: '/' },
+  { name: 'Услуги', href: '/#services' },
+  { name: 'Химчистка', href: '/business/himchistka/' }
+];
+
+const faqData = [
+  {
+    q: 'Сколько сохнет ковролин после химчистки?',
+    a: '4–6 часов при вентиляции. Используем мощные экстракторы, которые всасывают 90% влаги. Полное высыхание — за ночь. Рекомендуем проводить чистку вечером или в выходные.'
+  },
+  {
+    q: 'Какие пятна можно удалить?',
+    a: 'Кофе, чай, соки, пищевые загрязнения, следы обуви, масло, чернила. Свежие пятна удаляются полностью. Застарелые — на 70-90%, зависит от типа ткани и возраста пятна.'
+  },
+  {
+    q: 'Химия вредна для здоровья?',
+    a: 'Нет. Используем сертифицированные средства с нейтральным pH, без агрессивных компонентов. Безопасно для людей и животных. После чистки нет резкого запаха — лёгкий аромат свежести.'
+  },
+  {
+    q: 'Можно ли чистить ковролин на рабочих местах?',
+    a: 'Да, но рекомендуем в нерабочее время. Мебель поднимается, ковролин влажный первые 2 часа. Для офисов с круглосуточным режимом — проводим чистку по зонам.'
+  },
+  {
+    q: 'Есть ли гарантия?',
+    a: 'Да. Если пятно не удалилось или результат не устроил — повторная обработка бесплатно в течение 48 часов. Также застрахованы от повреждений.'
+  },
+  {
+    q: 'Нужно ли двигать мебель?',
+    a: 'Лёгкую мебель (стулья, столы) сдвигаем сами. Тяжёлую технику, серверные стойки — чистим вокруг. Если нужна чистка под мебелью — предупредите заранее, подготовим больше людей.'
+  },
+  {
+    q: 'Чем отличается химчистка от обычной уборки ковролина?',
+    a: 'Пылесос удаляет только поверхностную пыль. Химчистка — глубокая чистка волокон с моющими средствами и экстракцией грязи. Удаляет пятна, запахи, аллергены, пылевых клещей.'
+  },
+  {
+    q: 'Как часто нужна химчистка офиса?',
+    a: 'При ежедневной уборке — раз в полгода. Без ежедневной — раз в квартал. При высокой проходимости (более 50 человек на 100 м²) — каждые 2 месяца.'
+  }
+];
 ---
 
-<BaseLayout title={title} description={description}>
-  <Header />
+<BusinessLayout
+  title="Химчистка ковролина и мебели в офисе Москва — от 90 ₽/м² — Намыто"
+  description="Профессиональная химчистка ковровых покрытий и мягкой мебели в офисах Москвы. Экстракторная чистка, удаление пятен и запахов. Выезд на объект."
+  ogTitle="Химчистка ковролина и мебели в офисе Москва — от 90 ₽/м² — Намыто"
+  ogDescription="Профессиональная химчистка ковровых покрытий и мягкой мебели в офисах Москвы. Экстракторная чистка, удаление пятен."
+>
+  <Breadcrumbs items={breadcrumbs} />
 
-  <main>
-    <section class="s-hero">
-      <div class="container">
-        <div class="breadcrumbs">
-          <a href="/">Главная</a>
-          <span>/</span>
-          <span>Химчистка</span>
+  <section class="sp-hero">
+    <div class="container">
+      <h1>Химчистка ковролина и мебели в офисе</h1>
+      <p class="sp-hero-intro">Профессиональная чистка ковровых покрытий, кресел и диванов методом экстракции. Удаляем пятна, запахи, аллергены. Сохнет за 4–6 часов.</p>
+      <div class="sp-hero-bar">
+        <div class="sp-hero-bar-item"><div class="hb-label">Ковролин</div><div class="hb-value">от 90 ₽/м²</div></div>
+        <div class="sp-hero-bar-item"><div class="hb-label">Кресла</div><div class="hb-value">от 300 ₽/шт</div></div>
+        <div class="sp-hero-bar-item"><div class="hb-label">Диваны</div><div class="hb-value">от 800 ₽/шт</div></div>
+        <div class="sp-hero-bar-item"><div class="hb-label">Выезд</div><div class="hb-value">Москва и до 30 км от МКАД</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sp-section sp-section--light">
+    <div class="container">
+      <div class="sp-prose">
+        <div class="sec-label">Что входит</div>
+        <h2>Состав услуги химчистки</h2>
+        <p>Полный цикл очистки: осмотр, пылесос, предварительная обработка пятен, нанесение моющего состава, экстракция, сушка.</p>
+      </div>
+      <div class="sp-zones">
+        <div class="sp-zone">
+          <h3>Ковровые покрытия</h3>
+          <ul>
+            <li>Пылесосим сухую пыль и мусор</li>
+            <li>Наносим моющий состав (pH-нейтральный)</li>
+            <li>Механическая щётка для вработки</li>
+            <li>Экстракция грязной воды</li>
+            <li>Повторная промывка чистой водой</li>
+            <li>Осушение мощными вентиляторами</li>
+          </ul>
         </div>
+        <div class="sp-zone">
+          <h3>Офисные кресла</h3>
+          <ul>
+            <li>Пылесос сиденья и спинки</li>
+            <li>Предварительная обработка пятен</li>
+            <li>Нанесение чистящего состава</li>
+            <li>Экстракция с 2-3 проходами</li>
+            <li>Подлокотники отдельно</li>
+            <li>Сушка 2–3 часа</li>
+          </ul>
+        </div>
+        <div class="sp-zone">
+          <h3>Диваны и софы</h3>
+          <ul>
+            <li>Полный цикл как для кресел</li>
+            <li>Обработка подушек отдельно</li>
+            <li>Чистка каркаса снаружи</li>
+            <li>Удаление запахов (курение, еда)</li>
+            <li>Защитная пропитка по запросу</li>
+            <li>Сушка 4–6 часов</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <h1>Химчистка ковролина и мебели в офисе</h1>
-
-        <p>Профессиональная чистка ковровых покрытий, кресел и диванов. Экстракторный метод — глубокое проникновение в волокна без повреждения ткани.</p>
-
-        <div class="hero-stats">
-          <div class="stat-item">
-            <div class="stat-label">Ковролин</div>
-            <div class="stat-value">от 90 ₽/м²</div>
+  <section class="sp-section sp-section--dark">
+    <div class="container">
+      <div class="sp-prose">
+        <div class="sec-label">Цены</div>
+        <h2>Стоимость химчистки</h2>
+        <p>Фиксированные цены без скрытых доплат. Итоговая стоимость зависит от площади, количества мебели и степени загрязнения.</p>
+      </div>
+      <div class="sp-table-wrap">
+        <table class="sp-table">
+          <thead>
+            <tr><th>Объект</th><th>Цена</th><th>Примерное время</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Ковролин</td><td>от 90 ₽/м²</td><td>1 час на 50 м²</td></tr>
+            <tr><td>Офисное кресло</td><td>300–500 ₽/шт</td><td>15–20 минут</td></tr>
+            <tr><td>Диван 2-местный</td><td>800–1200 ₽</td><td>40–60 минут</td></tr>
+            <tr><td>Диван 3-местный</td><td>1200–1800 ₽</td><td>60–90 минут</td></tr>
+            <tr><td>Конференц-зал до 50 м²</td><td>от 8 000 ₽</td><td>2–3 часа</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="sp-prose">
+        <h3>Что влияет на цену</h3>
+        <div class="sp-zones" style="margin-top: 24px;">
+          <div class="sp-zone">
+            <h3>Степень загрязнения</h3>
+            <ul>
+              <li>Лёгкая — регулярный уход</li>
+              <li>Средняя — стандартное использование</li>
+              <li>Сложная — застарелые пятна, запахи</li>
+              <li>+20–50% к базовой цене</li>
+            </ul>
           </div>
-          <div class="stat-item">
-            <div class="stat-label">Мебель</div>
-            <div class="stat-value">от 500 ₽/место</div>
+          <div class="sp-zone">
+            <h3>Тип ткани</h3>
+            <ul>
+              <li>Синтетика — стандартная цена</li>
+              <li>Натуральная шерсть — +30%</li>
+              <li>Деликатные ткани — +50%</li>
+              <li>Кожзам — отдельная методика</li>
+            </ul>
           </div>
-          <div class="stat-item">
-            <div class="stat-label">Выезд</div>
-            <div class="stat-value">Москва</div>
+          <div class="sp-zone">
+            <h3>Дополнительно</h3>
+            <ul>
+              <li>Защитная пропитка — +30 ₽/м²</li>
+              <li>Удаление запахов — от 500 ₽</li>
+              <li>Срочный выезд — +30%</li>
+              <li>Выезд за МКАД — от 500 ₽</li>
+            </ul>
+          </div>
+        </div>
+        <div class="sp-note">Точную цену назовём после осмотра или по фото. Выезд менеджера бесплатно.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sp-section sp-section--off">
+    <div class="container">
+      <div class="sp-prose">
+        <div class="sec-label">Когда нужна</div>
+        <h2>Три причины заказать химчистку</h2>
+        <p>Химчистка — не роскошь, а необходимость для здоровой атмосферы в офисе.</p>
+      </div>
+      <div class="sp-zones">
+        <div class="sp-zone">
+          <h3>Пятна и загрязнения</h3>
+          <ul>
+            <li>Следы от кофе, чая, еды</li>
+            <li>Разводы от обуви и реагентов</li>
+            <li>Чернила, маркеры, косметика</li>
+            <li>Жирные пятна на кухне</li>
+            <li>Удаляем 90% загрязнений</li>
+          </ul>
+        </div>
+        <div class="sp-zone">
+          <h3>Запахи и аллергены</h3>
+          <ul>
+            <li>Запах табака в ковролине</li>
+            <li>Пылевые клещи — аллергия</li>
+            <li>Запах еды и напитков</li>
+            <li>Присутствие животных</li>
+            <li>Дезинфекция поверхностей</li>
+          </ul>
+        </div>
+        <div class="sp-zone">
+          <h3>Профилактика</h3>
+          <ul>
+            <li>Продление срока службы ковра</li>
+            <li>Сохранение первоначального вида</li>
+            <li>Подготовка к аудиту или переезду</li>
+            <li>После ремонта в части офиса</li>
+            <li>Защитная пропитка</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sp-section sp-section--dark">
+    <div class="container">
+      <div class="sp-prose">
+        <div class="sec-label">Процесс</div>
+        <h2>Как проходит химчистка</h2>
+        <p>Стандартный цикл от 2 часов до полного дня в зависимости от объёма работ.</p>
+      </div>
+      <div class="sp-steps">
+        <div class="sp-step">
+          <div>
+            <div class="sp-step-title">Осмотр</div>
+            <p>Оцениваем тип ткани, степень загрязнения, пятна. Определяем состав средств. Фиксируем цену.</p>
+          </div>
+        </div>
+        <div class="sp-step">
+          <div>
+            <div class="sp-step-title">Подготовка</div>
+            <p>Сдвигаем мебель, защищаем технику. Пылесосим сухую грязь перед мокрой чисткой.</p>
+          </div>
+        </div>
+        <div class="sp-step">
+          <div>
+            <div class="sp-step-title">Предварительная</div>
+            <p>Обрабатываем пятна специальными средствами. Даём время для растворения загрязнений.</p>
+          </div>
+        </div>
+        <div class="sp-step">
+          <div>
+            <div class="sp-step-title">Основная чистка</div>
+            <p>Наносим моющий состав, механическая щётка, экстракция грязной воды. 2-3 прохода.</p>
+          </div>
+        </div>
+        <div class="sp-step">
+          <div>
+            <div class="sp-step-title">Сушка</div>
+            <p>Мощные вентиляторы ускоряют высыхание. Через 4-6 часов ковролин готов к эксплуатации.</p>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="s-section bg-alt">
-      <div class="container">
-        <h2>Что входит в химчистку</h2>
-        <div class="grid-3">
-          <div class="info-card">
-            <div class="ic-num">01</div>
-            <h3>Ковровые покрытия</h3>
-            <p>Экстракторная чистка ковролина в офисе. Удаление пыли, пятен, неприятных запахов. Сохнет 4-6 часов.</p>
-          </div>
-          <div class="info-card">
-            <div class="ic-num">02</div>
-            <h3>Мягкая мебель</h3>
-            <p>Химчистка офисных кресел и диванов. Удаление загрязнений, дезинфекция, защитная пропитка по запросу.</p>
-          </div>
-          <div class="info-card">
-            <div class="ic-num">03</div>
-            <h3>Конференц-залы</h3>
-            <p>Комплексная чистка ковров и мебели в переговорных и конференц-залах. Работаем в выходные.</p>
-          </div>
+  <section class="sp-section sp-section--light">
+    <div class="container">
+      <div class="sp-prose">
+        <div class="sec-label">Вопросы</div>
+        <h2>Часто задаваемые вопросы</h2>
+      </div>
+      <div class="sp-prose">
+        <div class="sp-faq">
+          {faqData.map((item, i) => (
+            <details>
+              <summary>{item.q}</summary>
+              <div class="sp-faq-body">{item.a}</div>
+            </details>
+          ))}
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <CtaForm />
-  </main>
+  <section class="sp-section sp-section--dark">
+    <div class="container">
+      <div class="sp-prose">
+        <div class="sec-label">Подробнее</div>
+        <h2>Химчистка офиса: важные детали</h2>
 
-  <Footer />
-  <WhatsApp />
-</BaseLayout>
+        <h3>Почему обычного пылесоса недостаточно</h3>
+        <p>Пылесос удаляет только поверхностную пыль и крошки. Грязь, жир, пятна остаются глубоко в волокнах. Через 6-12 месяцев ковролин выглядит потускневшим, появляются разводы, запах. Химчистка возвращает первоначальный вид и цвет.</p>
+
+        <h3>Как ускорить высыхание</h3>
+        <p>Стандартное время — 4-6 часов. Для ускорения включаем кондиционер в режиме осушения, открываем окна (если позволяет погода), используем дополнительные вентиляторы. За доплату можем оставить промышленные осушители на ночь.</p>
+
+        <h3>Защитная пропитка — стоит ли</h3>
+        <p>Рекомендуем для офисов с высокой проходимостью и кухонных зон. Пропитка создаёт невидимый барьер: жидкости не впитываются, пятна легко удалить влажной тканью. Срок действия — 3-6 месяцев. Окупается снижением частоты химчистки.</p>
+
+        <h3>Что делать, если пятно не удалилось</h3>
+        <p>Некоторые застарелые пятна (химические красители, клей, масляная краска) не поддаются чистке без повреждения ткани. В таких случаях честно говорим о невозможности полного удаления. Повторная обработка другими средствами — бесплатно.</p>
+
+        <h3>Химчистка и срок службы ковролина</h3>
+        <p>Регулярная химчистка продлевает срок службы коврового покрытия на 2-3 года. Грязь в волокнах разрушает структуру, ткань истончается. Профессиональная чистка сохраняет ворс и цвет. Экономически выгоднее чистить раз в полгода, чем менять ковролин каждые 3 года.</p>
+      </div>
+    </div>
+  </section>
+
+  <CtaForm />
+
+  <SchemaOrg type="Service" data={{
+    name: 'Химчистка ковролина и мебели в офисе Москва',
+    provider: { '@type': 'LocalBusiness', name: 'Намыто', url: 'https://namyto.ru' },
+    areaServed: { '@type': 'City', name: 'Москва' },
+    description: 'Профессиональная химчистка ковровых покрытий и мягкой мебели в офисах Москвы. Экстракторная чистка.',
+    offers: { '@type': 'Offer', priceCurrency: 'RUB', price: '90', priceSpecification: { '@type': 'UnitPriceSpecification', price: '90', priceCurrency: 'RUB', unitText: 'м²' } }
+  }} />
+
+  <SchemaOrg type="FAQPage" data={{
+    mainEntity: faqData.map(item => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: { '@type': 'Answer', text: item.a }
+    }))
+  }} />
+
+  <style>
+    .sp-hero { padding: 120px 0 60px; background: var(--navy); }
+    .sp-hero h1 { font-family: var(--serif); font-size: clamp(32px, 4vw, 56px); color: var(--white); margin-bottom: 20px; }
+    .sp-hero-intro { font-size: 17px; color: var(--text); max-width: 720px; margin-bottom: 40px; line-height: 1.7; }
+    .sp-hero-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; border-top: 1px solid var(--border-l); padding-top: 28px; }
+    .sp-hero-bar-item .hb-label { font-size: 10px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--text-m); margin-bottom: 6px; }
+    .sp-hero-bar-item .hb-value { font-family: var(--serif); font-size: 16px; font-weight: 700; color: var(--white); }
+
+    .sp-section { padding: clamp(60px, 8vw, 100px) 0; }
+    .sp-section--light { background: var(--white); }
+    .sp-section--dark { background: var(--navy); }
+    .sp-section--off { background: var(--off); }
+
+    .sp-prose { max-width: 760px; }
+    .sp-section--light .sp-prose h2 { font-family: var(--serif); font-size: clamp(26px, 3vw, 40px); color: var(--navy); margin-bottom: 20px; }
+    .sp-section--dark .sp-prose h2 { font-family: var(--serif); font-size: clamp(26px, 3vw, 40px); color: var(--white); margin-bottom: 20px; }
+    .sp-section--off .sp-prose h2 { font-family: var(--serif); font-size: clamp(26px, 3vw, 40px); color: var(--navy); margin-bottom: 20px; }
+    .sp-prose h3 { font-family: var(--serif); font-size: 20px; color: var(--navy); margin: 32px 0 12px; }
+    .sp-section--light .sp-prose p { font-size: 15px; color: var(--text-dm); line-height: 1.75; margin-bottom: 16px; }
+    .sp-section--dark .sp-prose p { font-size: 15px; color: var(--text); line-height: 1.75; margin-bottom: 16px; }
+    .sp-section--off .sp-prose p { font-size: 15px; color: var(--text-dm); line-height: 1.75; margin-bottom: 16px; }
+    .sp-prose ul { margin: 16px 0; padding-left: 20px; }
+    .sp-section--light .sp-prose li { font-size: 15px; color: var(--text-dm); margin-bottom: 8px; }
+    .sp-section--dark .sp-prose li { font-size: 15px; color: var(--text); margin-bottom: 8px; }
+    .sp-section--off .sp-prose li { font-size: 15px; color: var(--text-dm); margin-bottom: 8px; }
+
+    .sp-zones { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 40px 0; }
+    .sp-zone { background: var(--off); padding: 24px; }
+    .sp-section--dark .sp-zone { background: var(--navy-2); }
+    .sp-zone h3 { font-family: var(--serif); font-size: 18px; color: var(--navy); margin-bottom: 16px; }
+    .sp-section--dark .sp-zone h3 { color: var(--white); }
+    .sp-zone ul { list-style: none; padding: 0; margin: 0; }
+    .sp-zone li { font-size: 14px; color: var(--text-dm); padding: 6px 0; padding-left: 16px; position: relative; }
+    .sp-section--dark .sp-zone li { color: var(--text-m); }
+    .sp-zone li::before { content: ''; position: absolute; left: 0; top: 14px; width: 5px; height: 5px; background: var(--teal); border-radius: 50%; }
+
+    .sp-table-wrap { margin: 40px 0; overflow-x: auto; }
+    .sp-table { width: 100%; border-collapse: collapse; }
+    .sp-section--light .sp-table th { text-align: left; padding: 14px 16px; font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--text-dm); border-bottom: 1px solid var(--border-d); background: var(--off); }
+    .sp-section--light .sp-table td { padding: 16px; font-size: 15px; color: var(--text-dm); border-bottom: 1px solid var(--border-d); background: var(--white); }
+    .sp-section--light .sp-table tr:hover td { background: var(--off); }
+
+    .sp-note { background: var(--navy-2); padding: 20px 24px; border-left: 3px solid var(--teal); margin: 32px 0; font-size: 15px; color: var(--text); }
+
+    .sp-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; margin: 40px 0; }
+    .sp-step { padding: 24px; background: var(--navy-2); border-top: 2px solid var(--teal); }
+    .sp-step-title { font-family: var(--serif); font-size: 18px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+    .sp-step p { font-size: 13px; color: var(--text-m); line-height: 1.6; }
+
+    .sp-faq { margin-top: 24px; }
+    .sp-faq details { border-bottom: 1px solid var(--border-d); }
+    .sp-faq summary { font-size: 16px; font-weight: 600; color: var(--navy); padding: 20px 0; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+    .sp-faq summary::after { content: '+'; font-size: 20px; color: var(--teal); }
+    .sp-faq details[open] summary::after { content: '—'; }
+    .sp-faq-body { padding: 0 0 20px; font-size: 15px; color: var(--text-dm); line-height: 1.7; }
+
+    @media (max-width: 960px) {
+      .sp-hero-bar { grid-template-columns: repeat(2, 1fr); }
+      .sp-zones { grid-template-columns: 1fr 1fr; }
+      .sp-steps { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .sp-hero-bar { grid-template-columns: 1fr; }
+      .sp-zones { grid-template-columns: 1fr; }
+      .sp-steps { grid-template-columns: 1fr; }
+    }
+  </style>
+</BusinessLayout>
