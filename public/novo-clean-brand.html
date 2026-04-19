@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NOVO CLEAN — Brand Identity</title>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --navy: #0F1729;
+      --navy-l: #1A2332;
+      --teal: #2DD4A7;
+      --teal-l: #3FE8B9;
+      --white: #FFFFFF;
+      --gray: #94A3B8;
+      --gray-l: #E2E8F0;
+    }
+    body {
+      font-family: 'Onest', sans-serif;
+      background: var(--white);
+      color: var(--navy);
+      line-height: 1.6;
+    }
+
+    /* Section Styles */
+    .section {
+      padding: 80px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section-title {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 40px;
+    }
+
+    /* Logo Variations */
+    .logo-showcase {
+      display: grid;
+      gap: 60px;
+    }
+    .logo-card {
+      padding: 60px;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+    .logo-card.dark {
+      background: var(--navy);
+    }
+    .logo-card.light {
+      background: var(--gray-l);
+    }
+    .logo-card.white {
+      background: var(--white);
+      border: 1px solid var(--gray-l);
+    }
+    .logo-card-label {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0.6;
+    }
+
+    /* Logo Typography */
+    .logo-primary {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .logo-novo {
+      font-size: 48px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .logo-clean {
+      font-size: 48px;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+    }
+    .logo-primary.dark .logo-novo,
+    .logo-primary.dark .logo-clean {
+      color: var(--white);
+    }
+    .logo-primary.light .logo-novo,
+    .logo-primary.light .logo-clean {
+      color: var(--navy);
+    }
+    .logo-primary.accent .logo-novo {
+      color: var(--teal);
+    }
+    .logo-primary.accent .logo-clean {
+      color: var(--navy);
+    }
+
+    /* Vertical Logo */
+    .logo-vertical {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    .logo-vertical .logo-novo {
+      font-size: 36px;
+    }
+    .logo-vertical .logo-clean {
+      font-size: 36px;
+      letter-spacing: 0.25em;
+    }
+
+    /* Icon Mark */
+    .logo-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--teal);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.05em;
+    }
+    .logo-icon.dark {
+      background: var(--navy);
+      border: 2px solid var(--teal);
+      color: var(--teal);
+    }
+
+    /* Hero Section Mockup */
+    .hero-mockup {
+      height: 600px;
+      background: linear-gradient(135deg, var(--navy) 0%, #1e293b 100%);
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-mockup::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(45,212,167,0.1) 0%, transparent 70%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    .hero-logo {
+      margin-bottom: 30px;
+    }
+    .hero-logo .logo-novo,
+    .hero-logo .logo-clean {
+      font-size: 64px;
+      color: var(--white);
+    }
+    .hero-tagline {
+      font-size: 24px;
+      font-weight: 300;
+      color: var(--gray);
+      letter-spacing: 0.05em;
+    }
+    .hero-cta {
+      margin-top: 40px;
+      padding: 16px 40px;
+      background: var(--teal);
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* Color Palette */
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+    }
+    .color-card {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    .color-swatch {
+      height: 120px;
+      display: flex;
+      align-items: flex-end;
+      padding: 16px;
+    }
+    .color-swatch.navy { background: var(--navy); }
+    .color-swatch.teal { background: var(--teal); }
+    .color-swatch.white { background: var(--white); border: 1px solid var(--gray-l); }
+    .color-swatch.gray { background: var(--gray); }
+    .color-info {
+      padding: 20px;
+      background: var(--white);
+    }
+    .color-name {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .color-hex {
+      font-size: 13px;
+      color: var(--gray);
+      font-family: monospace;
+    }
+
+    /* Typography */
+    .type-showcase {
+      display: grid;
+      gap: 30px;
+    }
+    .type-sample {
+      padding: 30px;
+      border-bottom: 1px solid var(--gray-l);
+    }
+    .type-label {
+      font-size: 11px;
+      color: var(--gray);
+      margin-bottom: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .type-text {
+      font-size: 32px;
+      color: var(--navy);
+    }
+    .type-text.weight-800 { font-weight: 800; }
+    .type-text.weight-700 { font-weight: 700; }
+    .type-text.weight-500 { font-weight: 500; }
+    .type-text.weight-300 { font-weight: 300; }
+
+    /* Favicon Preview */
+    .favicon-grid {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+    .favicon-preview {
+      text-align: center;
+    }
+    .favicon-box {
+      width: 64px;
+      height: 64px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .favicon-box.ico {
+      width: 32px;
+      height: 32px;
+      font-size: 14px;
+      border-radius: 4px;
+    }
+    .favicon-label {
+      font-size: 12px;
+      color: var(--gray);
+    }
+
+    /* Header Mockup */
+    .header-mockup {
+      background: rgba(15,23,41,0.95);
+      backdrop-filter: blur(20px);
+      padding: 20px 40px;
+      border-radius: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .header-logo .logo-novo,
+    .header-logo .logo-clean {
+      font-size: 24px;
+      color: var(--white);
+    }
+    .header-nav {
+      display: flex;
+      gap: 32px;
+    }
+    .header-nav a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--gray);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .header-nav a:hover {
+      color: var(--white);
+    }
+    .header-cta {
+      padding: 10px 24px;
+      background: var(--teal);
+      color: var(--navy);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .section { padding: 40px 20px; }
+      .logo-novo, .logo-clean { font-size: 36px; }
+      .hero-logo .logo-novo, .hero-logo .logo-clean { font-size: 48px; }
+      .hero-mockup { height: 500px; padding: 40px; }
+      .header-mockup { flex-direction: column; gap: 20px; }
+      .header-nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Logo Variations Section -->
+  <section class="section">
+    <h2 class="section-title">01. Варианты логотипа</h2>
+    <div class="logo-showcase">
+
+      <!-- Primary Horizontal -->
+      <div class="logo-card dark">
+        <span class="logo-card-label">Горизонтальный — основной</span>
+        <div class="logo-primary dark">
+          <span class="logo-novo">NOVO</span>
+          <span class="logo-clean">CLEAN</span>
+        </div>
+      </div>
+
+      <!-- Light Version -->
+      <div class="logo-card light">
+        <span class="logo-card-label">На светлом фоне</span>
+        <div class="logo-primary light">
+          <span class="logo-novo">NOVO</span>
+          <span class="logo-clean">CLEAN</span>
+        </div>
+      </div>
+
+      <!-- Accent Version -->
+      <div class="logo-card white">
+        <span class="logo-card-label">Акцентный — с бирюзовым</span>
+        <div class="logo-primary accent">
+          <span class="logo-novo">NOVO</span>
+          <span class="logo-clean">CLEAN</span>
+        </div>
+      </div>
+
+      <!-- Vertical -->
+      <div class="logo-card dark">
+        <span class="logo-card-label">Вертикальный</span>
+        <div class="logo-vertical">
+          <span class="logo-novo">NOVO</span>
+          <span class="logo-clean">CLEAN</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Hero Mockup -->
+  <section class="section">
+    <h2 class="section-title">02. Hero секция</h2>
+    <div class="hero-mockup">
+      <div class="hero-content">
+        <div class="hero-logo logo-primary dark">
+          <span class="logo-novo">NOVO</span>
+          <span class="logo-clean">CLEAN</span>
+        </div>
+        <p class="hero-tagline">Новый уровень чистоты</p>
+        <button class="hero-cta">Обсудить обслуживание</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Header Mockup -->
+  <section class="section">
+    <h2 class="section-title">03. Шапка сайта</h2>
+    <div class="header-mockup">
+      <div class="header-logo logo-primary dark">
+        <span class="logo-novo">NOVO</span>
+        <span class="logo-clean">CLEAN</span>
+      </div>
+      <nav class="header-nav">
+        <a href="#">Услуги</a>
+        <a href="#">Объекты</a>
+        <a href="#">О нас</a>
+        <a href="#">Контакты</a>
+      </nav>
+      <button class="header-cta">Связаться</button>
+    </div>
+  </section>
+
+  <!-- Color Palette -->
+  <section class="section">
+    <h2 class="section-title">04. Цветовая палитра</h2>
+    <div class="color-grid">
+      <div class="color-card">
+        <div class="color-swatch navy"></div>
+        <div class="color-info">
+          <div class="color-name">Deep Navy</div>
+          <div class="color-hex">#0F1729</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch teal"></div>
+        <div class="color-info">
+          <div class="color-name">Fresh Teal</div>
+          <div class="color-hex">#2DD4A7</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch white"></div>
+        <div class="color-info">
+          <div class="color-name">Pure White</div>
+          <div class="color-hex">#FFFFFF</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch gray"></div>
+        <div class="color-info">
+          <div class="color-name">Cool Gray</div>
+          <div class="color-hex">#94A3B8</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Typography -->
+  <section class="section">
+    <h2 class="section-title">05. Типографика</h2>
+    <div class="type-showcase">
+      <div class="type-sample">
+        <div class="type-label">ExtraBold — 800</div>
+        <div class="type-text weight-800">NOVO</div>
+      </div>
+      <div class="type-sample">
+        <div class="type-label">Bold — 700</div>
+        <div class="type-text weight-700">Профессиональный клининг</div>
+      </div>
+      <div class="type-sample">
+        <div class="type-label">Medium — 500</div>
+        <div class="type-text weight-500">Услуги для бизнеса</div>
+      </div>
+      <div class="type-sample">
+        <div class="type-label">Light — 300</div>
+        <div class="type-text weight-300">CLEAN</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Icon & Favicon -->
+  <section class="section">
+    <h2 class="section-title">06. Иконка и фавикон</h2>
+    <div class="favicon-grid">
+      <div class="favicon-preview">
+        <div class="favicon-box" style="background: #2DD4A7;">N</div>
+        <div class="favicon-label">Apple Touch Icon<br>180×180</div>
+      </div>
+      <div class="favicon-preview">
+        <div class="favicon-box" style="background: #0F1729; color: #2DD4A7;">N</div>
+        <div class="favicon-label">Dark Mode<br>180×180</div>
+      </div>
+      <div class="favicon-preview">
+        <div class="favicon-box ico" style="background: #2DD4A7;">N</div>
+        <div class="favicon-label">Favicon<br>32×32</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SVG Logo for Download -->
+  <section class="section">
+    <h2 class="section-title">07. SVG логотип (код)</h2>
+    <pre style="background: #f1f5f9; padding: 24px; border-radius: 8px; font-size: 13px; overflow-x: auto;">&lt;svg viewBox="0 0 240 40" xmlns="http://www.w3.org/2000/svg"&gt;
+  &lt;text x="0" y="32" font-family="Onest, sans-serif" font-size="36" font-weight="800" fill="#0F1729"&gt;NOVO&lt;/text&gt;
+  &lt;text x="110" y="32" font-family="Onest, sans-serif" font-size="36" font-weight="300" fill="#0F1729" letter-spacing="4"&gt;CLEAN&lt;/text&gt;
+&lt;/svg&gt;</pre>
+  </section>
+
+</body>
+</html>
